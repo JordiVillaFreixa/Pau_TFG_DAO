@@ -1,4 +1,7 @@
 #pereparar el PDB file
+
+
+
 #Descarregat i mirar si és el correcte
 #Addició de trehalosa com a sucre a la simulació més l'aigua
 
