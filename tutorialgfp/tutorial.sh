@@ -6,7 +6,7 @@ wget -nc https://ambermd.org/tutorials/basic/tutorial5/files/1EMA.pdb #(-nc no p
 # Segon pas: generar fitxer sense aigues i amb hidrogens
 pdb4amber -i 1EMA.pdb -o gfp.pdb --dry --reduce
 
-# Canviar els SE per S i els MSE per MET (anar amb compte amb els espais[s'han de revisar els documents PDB])
+# Canviar els SE per S i els MSE per MET (anar amb compte amb els espais[s'han de revisar els documents PDB]) S'ha de tenir en compte amb els espais que es deixen a
 sed 's/SE   MSE/ S   MSE/' gfp.pdb|sed s/MSE/MET/ >gfp2.pdb
 
 #Secció 2
@@ -18,4 +18,9 @@ wget -nc https://ambermd.org/tutorials/basic/tutorial5/files/CRO.cif
 
 antechamber -fi ccif -i CRO.cif -bk CRO -fo ac -o cro.ac -c bcc -at amber
 
-# Segons ens demana, entre altres fitxers trobem cro.ac,  
+# Segons ens demana, entre altres fitxers trobem cro.ac, el que pot semblar-se a un PDB file,però que conté una llista d'enllaços així com a càrregues atòmiques parcials i atom types. Donat que antechamber ocasionalment dona errors amb els Amber atom types, en aquest cas hem de corregir els NT atom per N a mà. Utilitzarem sed, tenint en compte els espais i les lletres que ocupen cada posició al document.
+
+sed 's/NT/N /' cro.ac >cro2.ac
+
+#Secció 3
+#
