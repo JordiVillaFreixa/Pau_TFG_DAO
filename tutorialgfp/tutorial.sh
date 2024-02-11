@@ -49,4 +49,3 @@ sander -O -i heat.in -p gfp.parm7 -c min1.rst7 -o heat.mdout \ -x heat.nc -r hea
 
 sander -O -i md.in -p gfp.parm7 -c heat.rst7 -o md1.mdout \
        -x md1.nc -r md1.rst7
-#Prova
