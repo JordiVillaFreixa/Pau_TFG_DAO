@@ -7,3 +7,4 @@ Implicit solvent molecular dynamics
    ntp=0, ntc=2, ntf=2, cut=1000,
    ntb=0, igb=8, ioutfm=1,
  /
+ 
