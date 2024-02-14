@@ -1,37 +1,37 @@
 import pandas as pd
-import re
-
-# Lista para almacenar los datos
-datos = []
 
 # Ruta al archivo .txt
 ruta_archivo = '/home/bel/arxiusgrans/min1.txt'
 
-# Palabras clave a buscar
-palabras_clave = ['NSTEP', 'BOND', 'VDWAALS']
+# Diccionario para almacenar los datos
+datos = {'NSTEP': [], 'ENERGY': [], 'RMS': [], 'GMAX': [], 'NAME': [], 'NUMBER': [],
+         'BOND': [], 'ANGLE': [], 'DIHED': [], 'VDWAALS': [], 'EEL': [], 'EGB': [],
+         '1-4 VDW': [], '1-4 EEL': [], 'RESTRAINT': []}
 
 # Lectura del archivo
 with open(ruta_archivo, 'r') as archivo:
-    # Inicializamos un diccionario para almacenar temporalmente los datos de cada entrada
-    entrada_actual = {}
-    
-    # Iteramos sobre las líneas del archivo
     for linea in archivo:
-        # Verificamos si la línea contiene alguna palabra clave
-        for palabra_clave in palabras_clave:
-            # Utilizamos expresiones regulares para buscar la palabra clave y extraer el valor numérico
-            coincidencia = re.search(f'{palabra_clave}: (\d+)', linea)
-            if coincidencia:
-                # Almacenamos la palabra clave y el valor numérico en el diccionario temporal
-                entrada_actual[palabra_clave] = int(coincidencia.group(1))
-    
-    # Verificamos si encontramos al menos una palabra clave en la línea actual
-    if entrada_actual:
-        # Agregamos los datos al listado
-        datos.append(entrada_actual)
+        if ' NSTEP       ENERGY          RMS            GMAX         NAME    NUMBER' in linea:
+            print(linea)
+            
+            valores = linea.split()
+            datos['NSTEP'].append(int(valores[0]))
+            datos['ENERGY'].append(float(valores[1]))
+            datos['RMS'].append(float(valores[2]))
+            datos['GMAX'].append(float(valores[3]))
+            datos['NAME'].append(valores[4])
+            datos['NUMBER'].append(int(valores[5]))
+        elif '=' in linea:
+            print(linea)
+            clave, valor = linea.split('\=')
+            clave = clave.strip()
+            valor = float(valor.strip())
+            # Asegurarse de que la clave es válida antes de intentar agregarla al diccionario
+            if clave in datos:
+                datos[clave].append(valor)
 
-# Creamos el DataFrame
+# Crear un DataFrame
 df = pd.DataFrame(datos)
 
-# Imprimimos el DataFrame
+# Imprimir el DataFrame
 print(df)
