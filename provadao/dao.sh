@@ -29,6 +29,9 @@ antechamber -fi ccif -i TPQ.cif -bk TPQ -fo ac -o tpq.ac -c bcc -at amber
 
 prepgen -i tpq.ac -o tpq.prepin -m tpq.mc -rn TPQ
 
+<<<<<<< HEAD
 # Ara s'ha de fer run de parmchk2 utilitzant el seguent command:
 
 parmchk2 -i tpq.prepin -f prepi -o frcmod.tpq -a Y \ -p $AMBERHOME/dat/leap/parm/parm10.dat
+=======
+>>>>>>> 2e57c34 (11)
