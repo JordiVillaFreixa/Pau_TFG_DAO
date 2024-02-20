@@ -19,15 +19,22 @@ pdb4amber -i pdb1ksi.pdb -o dao.pdb --dry --reduce
 ##FEEEEEEEEEEEEEEEER
 
 
+
 #Fem antechamber del nostre residu TPQ
 
 antechamber -fi ccif -i TPQ.cif -bk TPQ -fo ac -o tpq.ac -c bcc -at amber
 
+#Canviar NT per N
+sed 's/NT/N /' tpq.ac >tpq2.ac
+
 #Hem de crear el nostre document tleap, HEAD_NAME i TAIL_NAME  identifiquen els atoms que es connectaran als anteriors i seguents amino acids respectivament. MAIN_CHAIN és la llista d'àtoms al llarg de la cadena que connecten els àtoms de head i tail. OMIT_NAME és la llista d'àtoms a TPQ que han de ser extrets de la estructura final. PRE_HEAD_TYPE i POST_TAIL_TYPE permet a prepgen quins atom types a la proteina seran utilitzats per la connexió covalent. Finalment CHARGE dona la càrrega total al residu (crec que ha de ser 0)
+
+# No se crear l'arxiu tpq.mc
+
 
 #Fem prepgen
 
-prepgen -i tpq.ac -o tpq.prepin -m tpq.mc -rn TPQ
+prepgen -i tpq2.pdb -o tpq.prepin -m tpq.mc -rn TPQ
 
 <<<<<<< HEAD
 # Ara s'ha de fer run de parmchk2 utilitzant el seguent command:
@@ -35,3 +42,9 @@ prepgen -i tpq.ac -o tpq.prepin -m tpq.mc -rn TPQ
 parmchk2 -i tpq.prepin -f prepi -o frcmod.tpq -a Y \ -p $AMBERHOME/dat/leap/parm/parm10.dat
 =======
 >>>>>>> 2e57c34 (11)
+
+# we created the tleap file and now we run tleap
+
+tleap -f leap.in
+
+# After all this, now it's only needed minimization, heating and production
