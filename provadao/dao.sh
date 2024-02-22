@@ -47,4 +47,28 @@ parmchk2 -i tpq.prepin -f prepi -o frcmod.tpq -a Y \ -p $AMBERHOME/dat/leap/parm
 
 tleap -f leap.in
 
+#Si observem el documente de dao.pdb trobem que tenim CYX i no CYS, cosa que indica que hi ha un pont disulfur, i això li hem d'indicar
+dao=loadpdb dao.pdb
+bond dao.132.SG dao.153.SG
+bond dao.314.SG dao.340.SG
+bond dao.774.SG dao.795.SG
+bond dao.956.SG dao.982.SG
+
+#això s'ha d'afegir al fitxer de tleap.in
+
+
 # After all this, now it's only needed minimization, heating and production
+
+#Per minimization creem el fitxer min.in i fem sander
+
+sander -O -i min.in -p dao.parm7 -c dao.rst7 -o min1.out -r min1.rst7
+
+#Per heating creem el fitxer heat.in
+
+sander -O -i heat.in -p dao.parm7 -c min1.rst7 -o heat.mdout \
+       -x heat.nc -r heat.rst7
+
+#Per production creem el fitxer md.in
+
+sander -O -i md.in -p dao.parm7 -c heat.rst7 -o md1.mdout \
+       -x md1.nc -r md1.rst7
