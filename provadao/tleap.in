@@ -1,6 +1,5 @@
 source leaprc.protein.ff14SB
 source leaprc.water.opc
-solvateoct dao.pdb OPCBOX 10.0
 dao=loadpdb dao.pdb
 bond dao.132.SG dao.153.SG
 bond dao.314.SG dao.340.SG
