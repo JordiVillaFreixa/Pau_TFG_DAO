@@ -9,6 +9,8 @@ ssh -p2122 <youruser>@hpc.csuc.cat
 
 ```
 scp -P 2122 <remote_file_path>:<youruser>@hpc.csuc.cat <local_file_path>
+scp -P 2122 tutorialgfp.tar biotectfg12@hpc.csuc.cat:/home/biotectfg12/prova
+
 ```
 
 ### Finally if you want to launch a batch job, first of all you need to create one. Follow the example (the one I followed for molecular dynamics with amber):
