@@ -3,7 +3,7 @@
           Amber 22 SANDER                              2022
           -------------------------------------------------------
 
-| Run on 02/21/2024 at 13:13:12
+| Run on 02/27/2024 at 12:05:36
 
 |   Executable path: sander
 | Working directory: /home/bel/github/TFG_DAO/provadao
@@ -42,7 +42,7 @@ File Assignments:
 
 | Flags:                                                                        
 | New format PARM file being parsed.
-| Version =    1.000 Date = 02/21/24 Time = 13:01:21
+| Version =    1.000 Date = 02/23/24 Time = 12:30:51
  NATOM  =   20506 NTYPES =      16 NBONH =   10176 MBONA  =   10610
  NTHETH =   23182 MTHETA =   14458 NPHIH =   47038 MPHIA  =   46290
  NHPARM =       0 NPARM  =       0 NNB   =  113874 NRES   =    1288
@@ -134,3 +134,11 @@ default_name
  BOND    =     5918.0135  ANGLE   =     6736.4695  DIHED      =    15577.0487
  VDWAALS =    -6722.5542  EEL     =   -95405.8752  EGB        =   -13641.6900
  1-4 VDW =     7512.6699  1-4 EEL =    57987.2713  RESTRAINT  =        0.0000
+
+
+   NSTEP       ENERGY          RMS            GMAX         NAME    NUMBER
+     10      -2.3732E+04     2.2405E+01     1.3115E+03     CB      15696
+
+ BOND    =     5369.3152  ANGLE   =     6561.8655  DIHED      =    15571.6876
+ VDWAALS =    -7076.3938  EEL     =   -95395.4460  EGB        =   -13637.0782
+ 1-4 VDW =     6904.7883  1-4 EEL =    57969.7152  RESTRAINT  =        0.0000
