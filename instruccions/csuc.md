@@ -8,7 +8,7 @@ ssh -p2122 <youruser>@hpc.csuc.cat
 ### Now you're connected you can start working whatever you want. To import files into the HPC Cluster:
 
 ```
-scp -P 2122 <remote_file_path>:<youruser>@hpc.csuc.cat <local_file_path>
+scp -P 2122 <local_file_path> <youruser>@hpc.csuc.cat:<remote_file_path>
 scp -P 2122 tutorialgfp.tar biotectfg12@hpc.csuc.cat:/home/biotectfg12/prova
 
 ```
