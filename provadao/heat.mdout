@@ -1,0 +1,185 @@
+
+          -------------------------------------------------------
+          Amber 22 SANDER                              2022
+          -------------------------------------------------------
+
+| Run on 02/28/2024 at 20:04:14
+
+|   Executable path: sander
+| Working directory: /home/pau/github/TFG_DAO/provadao
+|          Hostname: Unknown
+  [-O]verwriting output
+
+File Assignments:
+|  MDIN: heat.in                                                               
+| MDOUT: heat.mdout                                                            
+|INPCRD: min1.rst7                                                             
+|  PARM: dao.parm7                                                             
+|RESTRT: heat.rst7                                                             
+|  REFC: refc                                                                  
+| MDVEL: mdvel                                                                 
+| MDFRC: mdfrc                                                                 
+|  MDEN: mden                                                                  
+| MDCRD: heat.nc                                                               
+|MDINFO: mdinfo                                                                
+|  MTMD: mtmd                                                                  
+|INPDIP: inpdip                                                                
+|RSTDIP: rstdip                                                                
+|INPTRA: inptraj                                                               
+
+
+ Here is the input file:
+
+Implicit solvent initial heating mdin                                          
+ &cntrl                                                                        
+   imin=0, irest=0, ntx=1,                                                     
+   ntpr=1000, ntwx=1000, nstlim=100000,                                        
+   dt=0.002, ntt=3, tempi=10,                                                  
+   temp0=300, gamma_ln=1.0, ig=-1,                                             
+   ntp=0, ntc=2, ntf=2, cut=1000,                                              
+   ntb=0, igb=8, ioutfm=1, nmropt=1,                                           
+ /                                                                             
+ &wt                                                                           
+   TYPE='TEMP0', ISTEP1=1, ISTEP2=100000,                                      
+   VALUE1=10.0, VALUE2=300.0,                                                  
+ /                                                                             
+ &wt TYPE='END' /                                                              
+                                                                               
+
+--------------------------------------------------------------------------------
+   1.  RESOURCE   USE: 
+--------------------------------------------------------------------------------
+
+| Flags:                                                                        
+| New format PARM file being parsed.
+| Version =    1.000 Date = 02/28/24 Time = 14:11:56
+ NATOM  =   20506 NTYPES =      16 NBONH =   10176 MBONA  =   10610
+ NTHETH =   23182 MTHETA =   14458 NPHIH =   47038 MPHIA  =   46290
+ NHPARM =       0 NPARM  =       0 NNB   =  113874 NRES   =    1288
+ NBONA  =   10610 NTHETA =   14458 NPHIA =   46290 NUMBND =      72
+ NUMANG =     175 NPTRA  =     219 NATYP =      36 NPHB   =       0
+ IFBOX  =       0 NMXRS  =      24 IFCAP =       0 NEXTRA =       0
+ NCOPY  =       0
+
+ Implicit solvent radii are ArgH and AspGluO modified Bondi2 radii (mbondi3)                                
+ Replacing prmtop screening parameters with GBn2 (igb=8) values
+
+|     Memory Use     Allocated
+|     Real             2001091
+|     Hollerith          62808
+|     Integer          1176820
+|     Max Pairs              1
+|     nblistReal             0
+|     nblist Int             0
+|       Total            20475 kbytes
+
+| Note: 1-4 EEL scale factors are being read from the topology file.
+
+| Note: 1-4 VDW scale factors are being read from the topology file.
+| Duplicated    0 dihedrals
+| Duplicated    0 dihedrals
+Note: ig = -1. Setting random seed to   615411 based on wallclock time in microseconds.
+
+--------------------------------------------------------------------------------
+   2.  CONTROL  DATA  FOR  THE  RUN
+--------------------------------------------------------------------------------
+
+default_name                                                                    
+
+General flags:
+     imin    =       0, nmropt  =       1
+
+Nature and format of input:
+     ntx     =       1, irest   =       0, ntrx    =       1
+
+Nature and format of output:
+     ntxo    =       2, ntpr    =    1000, ntrx    =       1, ntwr    =  100000
+     iwrap   =       0, ntwx    =    1000, ntwv    =       0, ntwe    =       0
+     ioutfm  =       1, ntwprt  =       0, idecomp =       0, rbornstat=      0
+
+Potential function:
+     ntf     =       2, ntb     =       0, igb     =       8, nsnb    =      25
+     ipol    =       0, gbsa    =       0, iesp    =       0
+     dielc   =   1.00000, cut     =1000.00000, intdiel =   1.00000
+     saltcon =   0.00000, offset  =   0.19514, surften =   0.00500
+     rdt     =   0.00000, rgbmax  =  25.00000  extdiel =  78.50000
+     alpb  =        0
+     gbalphaH  =   0.78844, gbbetaH   =   0.79870,  gbgammaH  =    0.43733
+     gbalphaC  =   0.73376, gbbetaC   =   0.50638,  gbgammaC  =    0.20584
+     gbalphaN  =   0.50336, gbbetaN   =   0.31683,  gbgammaN  =    0.19292
+     gbalphaOS =   0.86781, gbbetaOS  =   0.87664,  gbgammaOS =    0.38788
+     gbalphaP  =   0.41836, gbbetaP   =   0.29005,  gbgammaP  =    0.10642
+     gb_alpha_hnu  =   0.53705, gb_beta_hnu   =   0.36286,  gb_gamma_hnu  =    0.11670
+     gb_alpha_cnu  =   0.33167, gb_beta_cnu   =   0.19684,  gb_gamma_cnu  =    0.09342
+     gb_alpha_nnu  =   0.68631, gb_beta_nnu   =   0.46319,  gb_gamma_nnu  =    0.13872
+     gb_alpha_onu  =   0.60634, gb_beta_onu   =   0.46301,  gb_gamma_onu  =    0.14226
+     gb_alpha_pnu  =   0.41836, gb_beta_pnu   =   0.29005,  gb_gamma_pnu  =    0.10642
+
+Frozen or restrained atoms:
+     ibelly  =       0, ntr     =       0
+
+Molecular dynamics:
+     nstlim  =    100000, nscm    =      1000, nrespa  =         1
+     t       =   0.00000, dt      =   0.00200, vlimit  =  20.00000
+
+Langevin dynamics temperature regulation:
+     ig      =  615411
+     temp0   = 300.00000, tempi   =  10.00000, gamma_ln=   1.00000
+
+SHAKE:
+     ntc     =       2, jfastw  =       0
+     tol     =   0.00001
+
+NMR refinement options:
+     iscale  =       0, noeskp  =       1, ipnlty  =       1, mxsub   =       1
+     scalm   = 100.00000, pencut  =   0.10000, tausw   =   0.10000
+|  INFO: Old style inpcrd file read
+
+
+--------------------------------------------------------------------------------
+   3.  ATOMIC COORDINATES AND VELOCITIES
+--------------------------------------------------------------------------------
+
+default_name                                                                    
+ begin time read from input coords =     0.000 ps
+
+
+
+           Begin reading energy term weight changes/NMR restraints
+ WEIGHT CHANGES:
+ TEMP0         1 100000   10.000000  300.000000      0      0
+
+ RESTRAINTS:
+                          ** No restraint defined **
+
+                  Done reading weight changes/NMR restraints
+
+
+ Number of triangulated 3-point waters found:        0
+
+--------------------------------------------------------------------------------
+   4.  RESULTS
+--------------------------------------------------------------------------------
+
+|  # of SOLUTE  degrees of freedom (RNDFP):   51342.
+|  # of SOLVENT degrees of freedom (RNDFS):       0.
+|  NDFMIN =   51342.     NUM_NOSHAKE =      0     CORRECTED RNDFP =   51342.
+|  TOTAL # of degrees of freedom (RNDF) =   51342.
+
+ NSTEP =        0   TIME(PS) =       0.000  TEMP(K) =    11.95  PRESS =     0.0
+ Etot   =    -23652.8518  EKtot   =       609.4947  EPtot      =    -24262.3465
+ BOND   =      5022.3385  ANGLE   =      6514.4906  DIHED      =     15570.1314
+ 1-4 NB =      6839.5474  1-4 EEL =     57964.4744  VDWAALS    =     -7145.0689
+ EELEC  =    -95392.4877  EGB     =    -13635.7723  RESTRAINT  =         0.0000
+ ------------------------------------------------------------------------------
+
+ NMR restraints: Bond =    0.000   Angle =     0.000   Torsion =     0.000
+===============================================================================
+vlimit exceeded for step      7; vmax =  6779.0697
+
+     Coordinate resetting (SHAKE) cannot be accomplished,
+     deviation is too large
+     NITER, NIT, LL, I and J are :      0      2   6346  12745  12746
+
+     Note: This is usually a symptom of some deeper
+     problem with the energetics of the system.
