@@ -20,7 +20,7 @@ sed 's/NT/N /' tpq.ac >tpq2.ac
 ```
 
 ```
-prepgen -i tpq2.pdb -o tpq.prepin -m tpq.mc -rn TPQ
+prepgen -i tpq.pdb -o tpq.prepin -m tpq.mc -rn TPQ
 ```
 
 ```
