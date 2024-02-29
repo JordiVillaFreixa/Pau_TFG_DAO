@@ -1,6 +1,6 @@
 source leaprc.protein.ff19SB
 source leaprc.water.opc
-dao=loadpdb dao.pdb
+dao=loadpdb daonag.pdb
 solvateOct dao OPCBOX 10.0
 bond dao.132.SG dao.153.SG
 bond dao.314.SG dao.340.SG
@@ -9,6 +9,6 @@ bond dao.956.SG dao.982.SG
 set default PBRadii mbondi3
 loadAmberPrep tpq.prepin
 loadAmberParams frcmod.tpq
-x = loadPDB daonnag.pdb
+x = loadPDB daonag.pdb
 saveAmberParm x dao.parm7 dao.rst7
 quit
