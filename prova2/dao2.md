@@ -36,3 +36,19 @@ grep -v NAG dao.pdb > daonag.pdb
 ```
 tleap -f leap.in
 ```
+
+### Minimization, crem el fitxer min.in
+```
+pmemd -O -i min.in -p dao.parm7 -c dao.rst7 -o min1.out -r min1.rst7
+```
+### Heating, creem el fitxer heat.in
+```
+pmemd -O -i heat.in -p dao.parm7 -c min1.rst7 -o heat.mdout \
+       -x heat.nc -r heat.rst7
+```
+### MD, creem el fitxer md.in
+
+```
+pmemd -O -i md.in -p dao.parm7 -c heat.rst7 -o md1.mdout \
+       -x md1.nc -r md1.rst7
+```
