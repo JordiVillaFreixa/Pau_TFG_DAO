@@ -1,9 +1,10 @@
 
-
-   NSTEP       ENERGY          RMS            GMAX         NAME    NUMBER
-     40      -4.7575E+04     3.4278E+00     1.4659E+02     CA      15694
-
- BOND    =      759.0097  ANGLE   =     3476.2508  DIHED      =     5994.4779
- UB      =        0.0000  IMP     =        0.0000  CMAP       =     1064.7024
- VDWAALS =   -11121.1863  EEL     =   -94723.2655  EGB        =   -13735.8299
- 1-4 VDW =     4939.3633  1-4 EEL =    55771.6810  RESTRAINT  =        0.0000
+ NSTEP =        0   TIME(PS) =       0.000  TEMP(K) =    14.40  PRESS =     0.0
+ Etot   =   -654797.2202  EKtot   =      3965.8800  EPtot      =   -658763.1001
+ BOND   =       848.8440  ANGLE   =      4047.7727  DIHED      =      6460.1639
+ 1-4 NB =      5613.2796  1-4 EEL =     56261.7652  VDWAALS    =     46131.2193
+ EELEC  =   -779176.6973  EHBOND  =         0.0000  RESTRAINT  =         0.0000
+ CMAP   =      1050.5525
+ Ewald error estimate:   0.6188E-03
+ NMR restraints: Bond =    0.000   Angle =     0.000   Torsion =     0.000
+===============================================================================
