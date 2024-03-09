@@ -5,6 +5,6 @@ Explicit md
    dt=0.002, ntt=3, tempi=300,
    temp0=300, gamma_ln=2.0, ig=-1,
    ntp=1, ntc=2, ntf=2, cut=1000,
-   ntb=2, igb=0, ioutfm=1,
+   ntb=2, igb=0, ioutfm=1,q
  /
  
