@@ -13,6 +13,11 @@ scp -P 2122 tutorialgfp.tar biotectfg12@hpc.csuc.cat:/home/biotectfg12/prova
 
 ```
 
+### Files from csuc to local machine example
+```
+scp -P 2122 biotectfg12@hpc.csuc.cat:/home/biotectfg12/home/bel/github/TFG_DAO/prova2/results.tar /home/bel/Desktop/
+```
+
 ### Finally if you want to launch a batch job, first of all you need to create one. Follow the example (the one I followed for molecular dynamics with amber):
 
 ```
