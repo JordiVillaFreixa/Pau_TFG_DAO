@@ -9,6 +9,6 @@ bond dao.956.SG dao.982.SG
 set default PBRadii mbondi3
 loadAmberPrep tpq.prepin
 loadAmberParams frcmod.tpq
-x = loadPDB daonnag.pdb
+x = daonnag.pdb
 saveAmberParm x dao.parm7 dao.rst7
 quit

@@ -34,7 +34,7 @@ sed 's/NT/N /' tpq.ac >tpq2.ac
 
 #Fem prepgen
 
-prepgen -i tpq2.pdb -o tpq.prepin -m tpq.mc -rn TPQ
+prepgen -i tpq2.ac -o tpq.prepin -m tpq.mc -rn TPQ
 
 <<<<<<< HEAD
 # Ara s'ha de fer run de parmchk2 utilitzant el seguent command:
