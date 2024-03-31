@@ -29,6 +29,12 @@ parmchk2 -i tpq.prepin -f prepi -o frcmod.tpq -a Y \ -p $AMBERHOME/dat/leap/parm
 ```
 grep -v NAG dao.pdb > daonag.pdb
 ```
+
+### Un cop tenim preparat el pdb, falta el pas d'afegir-hi la trehalosa, que es farà amb la següent comanda a la terminal d'on estem treballant. El docuement tre.pdb és el document de la trehallosa en format pdb després d'haverlo tractar amb pdb4amber
+
+```
+${AMBERHOME}/bin/AddToBox -c daonag.pdb -a tre.pdb -na 120 -o daonag.pdb
+```
 ### no se si fer-ho amb això encara
 
 ### Hem de crear l'arxiu tleap
