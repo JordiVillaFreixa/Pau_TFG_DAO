@@ -1,6 +1,6 @@
 pdb4amber -i pdb1ksi.pdb -o dao.pdb --dry --reduce
 
-#Descarreguem els dos fitxers dels residues NAG i TPQ
+#Descarreguem els dos fitxers dels residues NAG i TPQ desde 
 antechamber -fi ccif -i TPQ.cif -bk TPQ -fo ac -o tpq.ac -c bcc -at amber
 antechamber -fi ccif -i NAG.cif -bk NAG -fo ac -o nag.ac -c bcc -at amber
 
@@ -19,7 +19,14 @@ PRE_HEAD_TYPE C
 POST_TAIL_TYPE N
 CHARGE 0.0
 
-nag.mc
+nag.mc:
+HEAD_NAME
+TAIL_NAME
+MAIN_CHAIN
+OMIT_NAME
+PRE_HEAD_TYPE
+POST_TAIL_TYPE
+CHARGE 0.0
 
 ## Hem de mirar primer de tot si el NAG el necessitem per la simulació, ja que podem veure al dao.pdb desde chimera que no està unit a la molècula
 
