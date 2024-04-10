@@ -1,0 +1,13 @@
+source leaprc.protein.ff19SB
+source leaprc.water.opc
+source leaprc.GLYCAM_06j-1
+set default PBRadii mbondi3
+loadAmberPrep tre.prepin
+loadAmberParams frcmod.tre
+tre1=loadpdb tre-copy.pdb
+tre2=loadpdb tre-copy.pdb
+tre=combine {tre1 tre2}
+solvateBox tre OPCBOX 10.0
+savepdb tre tre2hwat.pdb
+saveAmberParm tre tre2.parm7 tre2.rst7
+quit
