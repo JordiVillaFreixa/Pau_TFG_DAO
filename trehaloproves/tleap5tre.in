@@ -5,9 +5,12 @@ set default PBRadii mbondi3
 loadAmberPrep tre.prepin
 loadAmberParams frcmod.tre
 tre1=loadpdb tre-copy.pdb
-tre2=loadpdb tre-copy.pdb
-tre=combine {tre1 tre2}
+tre2=loadpdb rotated_1.pdb
+tre3=loadpdb rotated_2.pdb
+tre4=loadpdb rotated_3.pdb
+tre5=loadpdb rotated_4.pdb
+tre=combine {tre1 tre2 tre3 tre4 tre5}
 solvateBox tre OPCBOX 10.0
-savepdb tre tre2hwat.pdb
-saveAmberParm tre tre2.parm7 tre2.rst7
+savepdb tre tre5hwat.pdb
+saveAmberParm tre tre5.parm7 tre5.rst7
 quit

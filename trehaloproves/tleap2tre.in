@@ -4,8 +4,10 @@ source leaprc.GLYCAM_06j-1
 set default PBRadii mbondi3
 loadAmberPrep tre.prepin
 loadAmberParams frcmod.tre
-tre=loadpdb tre-copy.pdb
+tre1=loadpdb tre-copy.pdb
+tre2=loadpdb rotated_1.pdb
+tre=combine {tre1 tre2}
 solvateBox tre OPCBOX 10.0
-savepdb tre tre1hwat.pdb
-saveAmberParm tre tre1.parm7 tre1.rst7
+savepdb tre tre2hwat.pdb
+saveAmberParm tre tre2.parm7 tre2.rst7
 quit
