@@ -21,8 +21,7 @@ pmemd -O -i min.in -p tre1.parm7 -c tre1.rst7 -o tremin1.out -r min1tre.rst7
 pmemd -O -i heat.in -p tre1.parm7 -c min1tre.rst7 -o tre1heat.mdout \
        -x tre1heat.nc -r tre1heat.rst7
 
-pmemd -O -i md.in -p tre1.parm7 -c tre1heat.rst7 -o tre1md.mdout \
-       -x tre1md.nc -r tre1md.rst7
+pmemd -O -i md.in -p tre1.parm7 -c tre1heat.rst7 -o tre1md.mdout -x tre1md.nc -r tre1md.rst7
 
 #Simulació per dos trehaloses en aigua (fer un nou tleap desrpés d'haver afegit una trehalosa més al sistema)
 
@@ -36,7 +35,7 @@ pmemd -O -i md.in -p tre2.parm7 -c tre2heat.rst7 -o tre2md.mdout -x tre2md.nc -r
 
 pmemd -O -i min.in -p tre5.parm7 -c tre5.rst7 -o tremin5.out -r min5tre.rst7
 
-pmemd -O -i heat-in -p tre5.parm7 -c min5tre.rst7 -o tre5heat.mdout -x tre5heat.nc -r tre5heat.rst7
+pmemd -O -i heat.in -p tre5.parm7 -c min5tre.rst7 -o tre5heat.mdout -x tre5heat.nc -r tre5heat.rst7
 
 pmemd -O -i md.in -p tre5.parm7 -c tre5heat.rst7 -o tre5md.mdout -x tre5md.nc -r tre5md.rst7
 
@@ -44,6 +43,6 @@ pmemd -O -i md.in -p tre5.parm7 -c tre5heat.rst7 -o tre5md.mdout -x tre5md.nc -r
 
 pmemd -O -i min.in -p tre10.parm7 -c tre10.rst7 -o tremin10.out -r min10tre.rst7
 
-pmemd -O -i heat-in -p tre10.parm7 -c min10tre.rst7 -o tre10heat.mdout -x tre10heat.nc -r tre10heat.rst7
+pmemd -O -i heat.in -p tre10.parm7 -c min10tre.rst7 -o tre10heat.mdout -x tre10heat.nc -r tre10heat.rst7
 
 pmemd -O -i md.in -p tre10.parm7 -c tre10heat.rst7 -o tre10md.mdout -x tre10md.nc -r tre10md.rst7
