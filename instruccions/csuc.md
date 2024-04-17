@@ -13,7 +13,7 @@ scp -P 2122 tutorialgfp.tar biotectfg12@hpc.csuc.cat:/home/biotectfg12/prova
 
 ```
 
-### Files from csuc to local machine example (ber careful with changing directories of destination if more than one local machine)
+### Files from csuc to local machine example (be careful with changing directories of destination if more than one local machine)
 ```
 scp -P 2122 biotectfg12@hpc.csuc.cat:/home/biotectfg12/home/bel/github/TFG_DAO/prova2/results.tar /home/bel/Desktop/
 ```

@@ -6,10 +6,10 @@
 | PMEMD implementation of SANDER, Release 22
 
 |  Compiled date/time: Thu Apr 14 20:06:37 2022
-| Run on 04/16/2024 at 18:50:36
+| Run on 04/17/2024 at 17:31:32
 
 |   Executable path: pmemd
-| Working directory: /home/bel/github/TFG_DAO/SIMULACIONSTRE
+| Working directory: /home/pau/github/TFG_DAO/SIMULACIONSTRE
 |          Hostname: Unknown
   [-O]verwriting output
 
@@ -36,7 +36,7 @@ File Assignments:
                                                                                
 
 
-Note: ig = -1. Setting random seed to    64703 based on wallclock time in 
+Note: ig = -1. Setting random seed to   616322 based on wallclock time in 
       microseconds.
 | irandom = 1, using AMBER's internal random number generator (default).
  
@@ -286,50 +286,50 @@ default_name
 |
 |     Routine           Sec        %
 |     ------------------------------
-|     Nonbond          18.60   98.87
-|     Bond              0.05    0.26
+|     Nonbond          10.44   98.95
+|     Bond              0.03    0.28
 |     Angle             0.00    0.03
-|     Dihedral          0.02    0.13
+|     Dihedral          0.02    0.16
 |     Shake             0.00    0.00
-|     Other             0.14    0.72
+|     Other             0.06    0.59
 |     ------------------------------
-|     Total            18.81
+|     Total            10.55
 
 |  PME Nonbond Pairlist CPU Time:
 |
 |     Routine              Sec        %
 |     ---------------------------------
-|     Set Up Cit           0.01    0.03
-|     Build List           0.84    4.44
+|     Set Up Cit           0.01    0.05
+|     Build List           0.53    5.01
 |     ---------------------------------
-|     Total                0.84    4.48
+|     Total                0.53    5.06
 
 |  PME Direct Force CPU Time:
 |
 |     Routine              Sec        %
 |     ---------------------------------
-|     NonBonded Calc      14.85   78.94
-|     Exclude Masked       0.20    1.05
-|     Other                0.09    0.50
+|     NonBonded Calc       8.31   78.79
+|     Exclude Masked       0.11    1.06
+|     Other                0.02    0.21
 |     ---------------------------------
-|     Total               15.14   80.48
+|     Total                8.45   80.07
 
 |  PME Reciprocal Force CPU Time:
 |
 |     Routine              Sec        %
 |     ---------------------------------
-|     1D bspline           0.16    0.87
-|     Grid Charges         0.26    1.39
-|     Scalar Sum           0.37    1.95
-|     Gradient Sum         0.52    2.78
-|     FFT                  1.24    6.57
+|     1D bspline           0.07    0.70
+|     Grid Charges         0.15    1.38
+|     Scalar Sum           0.21    1.97
+|     Gradient Sum         0.30    2.80
+|     FFT                  0.70    6.60
 |     ---------------------------------
-|     Total                2.55   13.55
+|     Total                1.42   13.45
 
-|  Setup CPU time:            0.30 seconds
-|  NonSetup CPU time:        18.81 seconds
-|  Total CPU time:           19.11 seconds     0.01 hours
+|  Setup CPU time:            0.21 seconds
+|  NonSetup CPU time:        10.55 seconds
+|  Total CPU time:           10.76 seconds     0.00 hours
 
 |  Setup wall time:           0    seconds
-|  NonSetup wall time:       19    seconds
-|  Total wall time:          19    seconds     0.01 hours
+|  NonSetup wall time:       10    seconds
+|  Total wall time:          10    seconds     0.00 hours
