@@ -34,7 +34,7 @@ prepgen -i tpq2.ac -o tpq.prepin -m tpq.mc -rn TPQ
 prepgen -i nag.ac -o nag.prepin -m nag.mc -rn NAG
 
 
-#Per a la trehalosa, hem de descarregar desde drugbank format mol, després anem a openlabel i transforme'm l'arxiu mol a pdb amb estructura 3D. Un cop fet això i amb l'arxiu allà on el volem, treballem amb ell
+#Per a la trehalosa, hem de descarregar desde drugbank format mol, després anem a openlabel i transforme'm l'arxiu mol a pdb amb estructura 3D. Un cop fet això i amb l'arxiu allà on el volem, treballem amb ell (AIXÒ NOMÉS )
 antechamber -i dbtre.pdb -fi pdb -fo ac -o treant.ac -c bcc -at amber
 
 #Creem un fitxer mc per a la trehalosa:
@@ -47,6 +47,8 @@ MAIN_CHAIN C2
 PRE_HEAD_TYPE C
 POST_TAIL_TYPE C
 CHARGE 0.0
+
+#Aquest fitxer està malalament, amb posar càrrega 0 ja està bé
 
 #Fem prepgen de la trehalosa:
 prepgen -i treant.ac -o tre.prepin -m tre.mc -rn TRE
