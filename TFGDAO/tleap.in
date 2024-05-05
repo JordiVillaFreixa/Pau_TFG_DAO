@@ -1,15 +1,15 @@
 source leaprc.protein.ff19SB
 source leaprc.water.opc
-dao=dao.pdb
+source leaprc.GLYCAM_06j-1
+dao= loadpdb dao2.pdb
+loadAmberPrep tpq.prepin
+loadAmberParams frcmod.tpq
+loadAmberParams frcmod.nag
+solvateBox dao OPCBOX 10.0
 bond dao.132.SG dao.153.SG
-bond.dao.314.SG dao.340.SG
+bond dao.314.SG dao.340.SG
 bond dao.774.SG dao.795.SG
 bond dao.956.SG dao.982.SG
-solvatebox dao OPCBOX 10.0
-set default PBRadii mbondi3
-loadAmberPrep tpq.prepin
-loadAmberParams tpq.frcmod
-loadAmberParams nag.frcmod
-savepdb daowat.pdb
+savepdb dao daowat.pdb
 saveAmberParm dao dao.parm7 dao.rst7
 quit

@@ -61,3 +61,8 @@ parmchk2 -i nag.ac -f ac -o nag.frcmod -s gaff2
 
 #Al fitxer tleap, afegirem el force field de proteines ff19SB, el water opc, carregarem el fitxer dao
 
+Amb el tleap fet, ens dona fatal error per tema de atom types, comprovem si canviant les paraules HETATM per ATOM, funciona el tleap. 
+Farem:
+sed 's/HETATM/ATOM  /' dao.pdb >dao2.pdb
+No sembla que allò fos l'error, potser hem d'eliminar on possa connect al fitxer.
+Probem d'eliminar els connect i canviar hetatm per atom
