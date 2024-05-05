@@ -15,3 +15,12 @@ wget -nc https://files.rcsb.org/ligands/download/TPQ.cif
 pdb4amber -i 1KSI.pdb -o dao.pdb --dry --reduce
 
 #Utilitzem dry i reduce per treure les aigües cristalografiques i afegir àtoms d'hidrogen a les localitzacions més òpptimes
+
+#Ara anem amb el residu modificat TPQ, ja que no és un residu estàndard hem de crear la nostra pròpia llibreria. Per fer aquesta nova llibreria que contingui els atom types i les càrregues, farem ús d'antechamber. La comanda serà la següent:
+
+antechamber -fi ccif -i TPQ.cif -bk TPQ -fo ac -o tpq.ac -c bcc -at amber
+
+#Si observem el document generat i anomenat tpq.ac, veiem que hi ha un atom type NT, que no el reconeix amber, i per tant hem d'utilitzar altre cop el comando sed per canviar-ho manualment.
+
+sed 's/NT/ N/' tpq.ac >tpq2.ac
+
