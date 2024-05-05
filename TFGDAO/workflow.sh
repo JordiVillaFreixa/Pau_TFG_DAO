@@ -24,3 +24,28 @@ antechamber -fi ccif -i TPQ.cif -bk TPQ -fo ac -o tpq.ac -c bcc -at amber
 
 sed 's/NT/ N/' tpq.ac >tpq2.ac
 
+#Ara ho farem amb el lligand NAG:
+
+antechamber -fi ccif -i NAG.cif -bk NAG -fo ac -o nag.ac -c bcc -at amber
+
+#En aquest cas no ens farà falta corregir cap error de atom type.
+
+#Ara, per preparar la llibreria del residu TPQ i els seus paràmetres per utilitzar amb leap, necessitem fer un main chain file que identifica els àtoms a ser eliminats i quins són els que pertanyen a la cadena principal.
+
+tpq.mc:
+HEAD_NAME N
+TAIL_NAME C
+MAIN_CHAIN CA
+OMIT_NAME H2
+OMIT_NAME OXT
+OMIT_NAME HXT
+PRE_HEAD_TYPE C
+POST_TAIL_TYPE N
+CHARGE 0.0
+#Aquest serà el nostre mc file per TPQ.*********EXPLICAR QUE SIGNIFICA CADA COSA*********. Amb el fitxer a punt, hem de fer un prepgen.
+
+prepgen -i tpq2.ac -o tpq.prepin -m tpq.mc -rn TPQ
+#Ara ja tenim el document prepin que conté la definició del residu TPQ. Però, necessitem comprovar els paràmetres covalents
+
+parmchk2 -i tpq.prepin -f prepi -o tpq.frcmod -s gaff2
+
