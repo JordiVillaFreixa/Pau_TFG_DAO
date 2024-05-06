@@ -27,6 +27,7 @@ sed 's/NT/ N/' tpq.ac >tpq2.ac
 #Ara ho farem amb el lligand NAG:
 
 antechamber -fi ccif -i NAG.cif -bk NAG -fo ac -o nag.ac -c bcc -at amber
+antechamber -fi ccif -i NAG.cif -fo prepi -o nag2.ac -c bcc -at amber -nc 0 -rn NAG -bk NAG
 
 #En aquest cas no ens farà falta corregir cap error de atom type.
 
@@ -53,9 +54,14 @@ parmchk2 -i tpq.prepin -f prepi -o frcmod.tpq -s gaff2
 #https://docs.bioexcel.eu/2020_06_09_online_ambertools4cp2k/04-parameters/index.html
 
 prepgen -i nag.ac -o nag.prepin -f int -rn NAG
+prepgen -i nag2.ac -o nag2.prepin -f int -rn NAG
 # Per la nostra parametrització del lligan, NO FARÀ FALTA CREAR UN MC FILE perque no és un residu, així que directament usarem parmchk2
 
 parmchk2 -i nag.prepin -f prepi -o frcmod.nag -s gaff2
+parmchk2 -i nag.prepin -f prepi -o frcmod.nag -s gaff
+parmchk2 -i nag.prepin -f prepi -o frcmod.nag -s parm10
+parmchk2 -i nag2.prepin -f prepi -o frcmod.nag2 -s gaff2
+
 
 #Amb tots aquests fitxers, hem de fer un tleap, afegint els nous paràmetres i així creem els fitxers de coordenades per començar amb les simulacions.
 #Per les simulacions que volem fer, necessitem afegir ions, trehalosa en diferents concentracions i aigua.
@@ -67,3 +73,4 @@ Farem:
 sed 's/HETATM/ATOM  /' dao.pdb >dao2.pdb
 No sembla que allò fos l'error, potser hem d'eliminar on possa connect al fitxer.
 Probem d'eliminar els connect i canviar hetatm per atom
+
