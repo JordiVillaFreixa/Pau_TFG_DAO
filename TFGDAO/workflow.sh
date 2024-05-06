@@ -27,8 +27,8 @@ sed 's/NT/ N/' tpq.ac >tpq2.ac
 #Ara ho farem amb el lligand NAG:
 
 antechamber -fi ccif -i NAG.cif -bk NAG -fo ac -o nag.ac -c bcc -at amber
-antechamber -fi ccif -i NAG.cif -fo prepi -o nag2.ac -c bcc -at amber -nc 0 -rn NAG -bk NAG
-
+antechamber -fi ccif -i NAG.cif -fo prepi -o nag3.prepin -c bcc -at amber -nc 0 -rn NAG -bk NAG
+#Provem a partir de la nayanika aquest antechamber
 #En aquest cas no ens farà falta corregir cap error de atom type.
 
 #Ara, per preparar la llibreria del residu TPQ i els seus paràmetres per utilitzar amb leap, necessitem fer un main chain file que identifica els àtoms a ser eliminats i quins són els que pertanyen a la cadena principal.
@@ -62,6 +62,8 @@ parmchk2 -i nag.prepin -f prepi -o frcmod.nag -s gaff
 parmchk2 -i nag.prepin -f prepi -o frcmod.nag -s parm10
 parmchk2 -i nag2.prepin -f prepi -o frcmod.nag2 -s gaff2
 
+#parmchk de la nayanika
+parmchk2 -f prepi -i nag2.prepi -o frcmod.nag3
 
 #Amb tots aquests fitxers, hem de fer un tleap, afegint els nous paràmetres i així creem els fitxers de coordenades per començar amb les simulacions.
 #Per les simulacions que volem fer, necessitem afegir ions, trehalosa en diferents concentracions i aigua.

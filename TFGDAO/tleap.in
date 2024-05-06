@@ -3,7 +3,7 @@ source leaprc.water.opc
 source leaprc.GLYCAM_06j-1
 loadAmberPrep tpq.prepin
 loadAmberPrep nag2.prepin
-loadAmberParams frcmod.nag2
+loadAmberParams frcmod.nag3
 loadAmberParams frcmod.tpq
 dao= loadpdb dao.pdb
 solvateBox dao OPCBOX 10.0
