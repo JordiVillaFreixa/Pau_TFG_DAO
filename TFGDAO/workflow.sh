@@ -47,14 +47,15 @@ CHARGE 0.0
 prepgen -i tpq2.ac -o tpq.prepin -m tpq.mc -rn TPQ
 #Ara ja tenim el document prepin que conté la definició del residu TPQ. Però, necessitem comprovar els paràmetres covalents
 
-parmchk2 -i tpq.prepin -f prepi -o tpq.frcmod -s gaff2
+parmchk2 -i tpq.prepin -f prepi -o frcmod.tpq -s gaff2
 
 #Ara ja tenim parametritzat el nostre residu modificat TPQ, però ens falta el nostre lligan NAG.
 #https://docs.bioexcel.eu/2020_06_09_online_ambertools4cp2k/04-parameters/index.html
 
+prepgen -i nag.ac -o nag.prepin -f int -rn NAG
 # Per la nostra parametrització del lligan, NO FARÀ FALTA CREAR UN MC FILE perque no és un residu, així que directament usarem parmchk2
 
-parmchk2 -i nag.ac -f ac -o nag.frcmod -s gaff2
+parmchk2 -i nag.prepin -f prepi -o frcmod.nag -s gaff2
 
 #Amb tots aquests fitxers, hem de fer un tleap, afegint els nous paràmetres i així creem els fitxers de coordenades per començar amb les simulacions.
 #Per les simulacions que volem fer, necessitem afegir ions, trehalosa en diferents concentracions i aigua.
