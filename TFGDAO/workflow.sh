@@ -27,8 +27,11 @@ sed 's/NT/ N/' tpq.ac >tpq2.ac
 #Ara ho farem amb el lligand NAG:
 
 antechamber -fi ccif -i NAG.cif -bk NAG -fo ac -o nag.ac -c bcc -at amber
-antechamber -fi ccif -i NAG.cif -fo prepi -o nag3.prepin -c bcc -at amber -nc 0 -rn NAG -bk NAG
+
+antechamber -fi ccif -i NAG.cif -fo prepi -o nag2.ac -c bcc -at amber -nc 0 -rn NAG -bk NAG
 #Provem a partir de la nayanika aquest antechamber
+#provem de crear nag3.ac
+antechamber -fi ccif -i NAG.cif -fo ac -o nag3.ac -c bcc -at amber -nc 0 -rn NAG -bk NAG
 #En aquest cas no ens farà falta corregir cap error de atom type.
 
 #Ara, per preparar la llibreria del residu TPQ i els seus paràmetres per utilitzar amb leap, necessitem fer un main chain file que identifica els àtoms a ser eliminats i quins són els que pertanyen a la cadena principal.
@@ -55,15 +58,23 @@ parmchk2 -i tpq.prepin -f prepi -o frcmod.tpq -s gaff2
 
 prepgen -i nag.ac -o nag.prepin -f int -rn NAG
 prepgen -i nag2.ac -o nag2.prepin -f int -rn NAG
+
+#últim prepgen nag3.ac
+prepgen -i nag3.ac -o nag4.prepin -f int -rn NAG
 # Per la nostra parametrització del lligan, NO FARÀ FALTA CREAR UN MC FILE perque no és un residu, així que directament usarem parmchk2
 
 parmchk2 -i nag.prepin -f prepi -o frcmod.nag -s gaff2
 parmchk2 -i nag.prepin -f prepi -o frcmod.nag -s gaff
 parmchk2 -i nag.prepin -f prepi -o frcmod.nag -s parm10
 parmchk2 -i nag2.prepin -f prepi -o frcmod.nag2 -s gaff2
+#provem amb el nag3.prepim
+parmchk2 -i nag3.prepin -f prepi -o frcmod.nag4
 
 #parmchk de la nayanika
 parmchk2 -f prepi -i nag2.prepi -o frcmod.nag3
+
+#provem amb el nag3.ac i passem a frcmod.nag5
+parmchk2 -f prepi -i nag4.prepin -o frcmod.nag5
 
 #Amb tots aquests fitxers, hem de fer un tleap, afegint els nous paràmetres i així creem els fitxers de coordenades per començar amb les simulacions.
 #Per les simulacions que volem fer, necessitem afegir ions, trehalosa en diferents concentracions i aigua.

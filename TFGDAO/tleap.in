@@ -2,8 +2,8 @@ source leaprc.protein.ff19SB
 source leaprc.water.opc
 source leaprc.GLYCAM_06j-1
 loadAmberPrep tpq.prepin
-loadAmberPrep nag2.prepin
-loadAmberParams frcmod.nag3
+loadAmberPrep nag.prepin
+loadAmberParams frcmod.nag
 loadAmberParams frcmod.tpq
 dao= loadpdb dao.pdb
 solvateBox dao OPCBOX 10.0
