@@ -5,12 +5,8 @@ loadAmberPrep tpq.prepin
 loadAmberPrep nag.prepin
 loadAmberParams frcmod.nag
 loadAmberParams frcmod.tpq
-dao= loadpdb dao.pdb
+dao= loadpdb daoag2.pdb
 solvateBox dao OPCBOX 10.0
-bond dao.132.SG dao.153.SG
-bond dao.314.SG dao.340.SG
-bond dao.774.SG dao.795.SG
-bond dao.956.SG dao.982.SG
 savepdb dao daowat.pdb
 saveAmberParm dao dao.parm7 dao.rst7
 quit
