@@ -1,0 +1,14 @@
+source leaprc.protein.ff19SB
+source leaprc.water.opc
+loadAmberPrep tpq.prepin
+loadAmberParams frcmod.tpq
+dao=loadpdb daonag.pdb
+bond dao.132.SG dao.153.SG
+bond dao.314.SG dao.340.SG
+bond dao.774.SG dao.795.SG
+bond dao.956.SG dao.982.SG
+addions dao NA 0
+solvatebox dao OPCBOX 10.0
+savepdb dao daowat.pdb
+saveAmberParm dao dao.parm7 dao.rst7
+quit
