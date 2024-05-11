@@ -87,3 +87,5 @@ sed 's/HETATM/ATOM  /' dao.pdb >dao2.pdb
 No sembla que allò fos l'error, potser hem d'eliminar on possa connect al fitxer.
 Probem d'eliminar els connect i canviar hetatm per atom
 
+#Quedad jordi, borramos hidrogenos sobrantes despues de añadirlos en openbabel, borramos h22, h2 y h4
+#Ojo la quiralidad
