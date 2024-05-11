@@ -1,0 +1,14 @@
+source leaprc.protein.ff19SB
+source leaprc.water.opc
+source leaprc.GLYCAM_06j-1
+loadAmberPrep tpq.prepin
+loadAmberPrep ag1h.prepin
+loadAmberParams frcmod.tpq
+loadAmberParams frcmod1.ag1h
+loadAmberParams frcmod2.ag1h
+dao= loadpdb dao.pdb
+addions NA 0
+solvateBox dao OPCBOX 10.0
+savepdb dao daowat.pdb
+saveAmberParm dao dao.parm7 dao.rst7
+quit

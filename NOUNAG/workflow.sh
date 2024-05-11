@@ -51,7 +51,7 @@ CHARGE 0.0
 prepgen -i tpq2.ac -o tpq.prepin -m tpq.mc -rn TPQ
 #Ara ja tenim el document prepin que conté la definició del residu TPQ. Però, necessitem comprovar els paràmetres covalents
 
-parmchk2 -i tpq.prepin -f prepi -o frcmod.tpq -s gaff2
+    parmchk2 -i tpq.prepin -f prepi -o frcmod.tpq -s gaff2
 
 #Ara ja tenim parametritzat el nostre residu modificat TPQ, però ens falta el nostre lligan NAG.
 #https://docs.bioexcel.eu/2020_06_09_online_ambertools4cp2k/04-parameters/index.html
