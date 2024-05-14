@@ -1,12 +1,13 @@
 # TFG_DAO
 
-## Instalacio amber
+## Instalació amber
 
 ```
 tar xvf Amber22.tar 
 tar xvf AmberTools23.tar 
-mv amber22_src/ ../software/
-cd ../software/amber22_src/build
+mkdir ~/software
+mv amber22_src/ ~/software/
+cd ~/software/amber22_src/build
 ./run_cmake
 make install
 
@@ -19,6 +20,13 @@ source amber.sh
 cd
 
 ```
+
+o bé, simplement, afegir aquesta línea al fitxer `~/.bashrc` (o a `~/.bash_profile` si treballem a Mac):
+```
+source $HOME/software/amber24/amber.sh
+```
+
+
 ## Configuracio Github amb VisualStudioCode
 ```
 git config --global user.email "you@example.com"

@@ -1,3 +1,10 @@
+- [Descàrrega de fitxers](#descàrrega-de-fitxers)
+- [Preparació del TPQ](#preparació-del-tpq)
+- [Preparació del NAG](#preparació-del-nag)
+
+
+## Descàrrega de fitxers
+
 Primer de tot descarregarem els fitxers necessaris
 
 ```
@@ -9,6 +16,8 @@ Fem el pdb4amber del fitxer 1KSI
 ```
 pdb4amber -i 1KSI.pdb -o dao.pdb --dry --reduce
 ```
+
+## Preparació del TPQ
 
 Per preparar el TPQ i que sigui reconegut per Amber haurem de fer el següent:
 ```
@@ -41,10 +50,19 @@ Tot seguit fem el parmchk2
 parmchk2 -i tpq.prepin -f prepi -o frcmod.tpq
 ```
 
+## Preparació del NAG
+
 El nostre residu modificat TPQ ja està parametritzat, ens falta el NAG, que de res ens serveix el seu document de pdb ja que necessitem crear-ho de 0 per a la nostra dao, on el NAG és un residu modificat lligat a DAO per ASN.
 Per crear-ho de zero farem el següent, crear fitxers nous per a cada nag. AAG serà el nom del nou residu. ag1.pdb, ag2.pdb, ag1_2.pdb i ag2_2.pdb
 
 El primer que farem serà visualitzar el fitxer dao.pdb i apuntar que ASN està amb quin NAG. Un cop se saben quines asn van amb quins nag, creem nous fitxers amb aquesta informació amb els noms anteriorment mencionats. I al pdb original que ens serveix per anar creant aquests fitxers, anem substituin la informació, de manera que no quedan nags, i les asn lligades a aquests tampocs i es converteixen en un únic residu.
+
+<figure>
+  <img
+  src="figures/ag2.png"
+  alt="Asn NAG NAG.">
+  <figcaption>chimerax: open 1ksi; select #2/A:131 #2/C:1,2</figcaption>
+</figure>
 
 Per avançar feina, també crearem un fitxer mc per al nou residu anomenat aag.mc:
 ```
@@ -63,6 +81,31 @@ Intentem fer un antechamber d'això
 ```
 antechamber -fi pdb -i ag1h.pdb -fo ac -o ag1h.ac -c bcc -at amber -nc 0 -rn AAG -bk AAG
 ```
+WARNING: veiem que obtenim aquest Warning, que implica un problema amb l'estructura:
+
+```
+-- Check Format for pdb File --
+   Status: pass
+Warning: The assigned bond types may be wrong, please :
+(1) double check the structure (the connectivity) and/or 
+(2) adjust atom valence penalty parameters in APS.DAT, and/or 
+(3) increase PSCUTOFF in define.h and recompile bondtype.c
+    (be cautious, using a large value of PSCUTOFF (>100) will 
+    significantly increase the computation time).
+Info: Total number of electrons: 170; net charge: 0
+```
+
+Això sembla provenir d'un problema comú en cristalografia (veure la figura 4 a https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6465985/, per exemple) a l'hora de determinar l'estructura de múltiples glycosilations en residus concrets.  Si observem el detall del pdb `ag1h.pdb`, s'hi ha afegit un hidrogen que no és correcte, però sibretaot que es tracta d'una estructura amb dosfragments de N-acetil glucosamina:
+
+<figure>
+  <img
+  src="figures/ag2h_error.png"
+  alt="Asn NAG NAG.">
+  <figcaption>detall de l'estructura ag1h.pdb, on s'aprecia que hi ha dos fragments de N-acetil glucosamina</figcaption>
+</figure>
+
+Construeixo un fitxer que només en contingui una
+
 El prepgen
 
 ```
