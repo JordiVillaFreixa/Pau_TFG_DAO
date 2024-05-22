@@ -2,7 +2,9 @@ source leaprc.protein.ff14SB
 source leaprc.water.opc
 source leaprc.GLYCAM_06j-1
 loadAmberPrep tpq.prepin
+loadAmberPrep nag.prepin
 loadAmberParams frcmod.tpq
+loadAmberParams frcmod.nag
 dao= loadpdb dao.pdb
 bond dao.132.SG dao.153.SG
 bond dao.314.SG dao.340.SG
