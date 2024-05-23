@@ -3,8 +3,14 @@ source leaprc.water.opc
 source leaprc.GLYCAM_06j-1
 loadAmberPrep tpq.prepin
 loadAmberPrep nag.prepin
+loadAmberPrep 0YB.prepin
+loadAmberPrep 4YB.prepin
+loadAmberPrep 4YBD.prepin
 loadAmberParams frcmod.tpq
 loadAmberParams frcmod.nag
+loadAmberParams frcmod.0YB
+loadAmberParams frcmod.4YB
+loadAmberParams frcmod.4YBD
 dao= loadpdb dao.pdb
 bond dao.132.SG dao.153.SG
 bond dao.314.SG dao.340.SG
