@@ -1,7 +1,16 @@
-- [Descàrrega de fitxers](#descàrrega-de-fitxers)
-- [Preparació del TPQ](#preparació-del-tpq)
-- [Preparació del NAG](#preparació-del-nag)
+- [O-acetylglycosamine](#o-acetylglycosamine)
+- [Modelatge de GLCNAC](#modelatge-de-glcnac)
+  - [Descàrrega de fitxers](#descàrrega-de-fitxers)
+  - [Preparació del TPQ](#preparació-del-tpq)
+  - [Preparació del NAG](#preparació-del-nag)
 
+# O-acetylglycosamine
+
+
+
+# Modelatge de GLCNAC
+
+[Exemple de modelatge d'oligosacàrids](https://www.charmm-gui.org/?doc=demo&id=glycan_rm&lesson=2)
 
 ## Descàrrega de fitxers
 

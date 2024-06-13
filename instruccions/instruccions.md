@@ -3,11 +3,11 @@
 ## Instalació amber
 
 ```
-tar xvf Amber22.tar 
-tar xvf AmberTools23.tar 
-mkdir ~/software
-mv amber22_src/ ~/software/
-cd ~/software/amber22_src/build
+tar xvf Amber<version>.tar 
+tar xvf AmberTools<version>.tar 
+mkdir ~/Software
+mv amber<version>_src/ ~/Software/
+cd ~/Software/amber<version>_src/build
 ./run_cmake
 make install
 
@@ -23,7 +23,7 @@ cd
 
 o bé, simplement, afegir aquesta línea al fitxer `~/.bashrc` (o a `~/.bash_profile` si treballem a Mac):
 ```
-source $HOME/software/amber24/amber.sh
+source $HOME/software/amber<version>/amber.sh
 ```
 
 
