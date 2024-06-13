@@ -90,6 +90,10 @@ Intentem fer un antechamber d'això
 ```
 antechamber -fi pdb -i ag1h.pdb -fo ac -o ag1h.ac -c bcc -at amber -nc 0 -rn AAG -bk AAG
 ```
+
+[hola](http://legacy.glycam.org/tools/molecular-dynamics/glycoprotein-builder/download-files)
+
+
 WARNING: veiem que obtenim aquest Warning, que implica un problema amb l'estructura:
 
 ```
