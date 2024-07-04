@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# Get the IP address of the machine
+#IP_ADDRESS=$(hostname -I | awk '{print $1}')
+#IP_ADDRESS=$(ip -4 addr show | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | head -n 1)
+# mac OS
+IP_ADDRESS=$(ifconfig | grep 'inet ' | grep -v '127.0.0.1' | awk '{print $2}' | head -n 1)
+
+# Set SCRATCHDIR based on the IP address
+case $IP_ADDRESS in
+    192.168.1.1)
+        SCRATCHDIR="/path/to/scratchdir1"
+        ;;
+    192.168.1.2)
+        SCRATCHDIR="/path/to/scratchdir2"
+        ;;
+    192.168.1.3)
+        SCRATCHDIR="/path/to/scratchdir3"
+        ;;
+    *)
+        SCRATCHDIR="/default/scratchdir"
+        ;;
+esac
+
+# Export the SCRATCHDIR variable
+export SCRATCHDIR
+export INPUTDIR = $HOME/Github/Treball/Pau_TFG_DAO/inputs"
+export RESULTSDIR = $HOME/Github/Treball/Pau_TFG_DAO/results"
+
+# Optionally print the SCRATCHDIR for confirmation
+echo "env variables for AMBER in this computer:\n
+	SCRATCHDIR is set to: $SCRATCHDIR for $IP_ADDRESS\n
+        INPUTDIR is set to: $INPUTDIR\n
+        RESULTSDIR is set to: $RESULTSDIR"
+
+

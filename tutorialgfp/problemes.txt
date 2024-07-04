@@ -1,2 +1,0 @@
-hi ha diversos problemes, entre ells el document CRO.cif que et fa descarregar el tutorial, aquest no està actualitzat (és de 2015)
-Després, encara que utilitzi el document nou de 2023, el pas primer de parmchk2 no funciona

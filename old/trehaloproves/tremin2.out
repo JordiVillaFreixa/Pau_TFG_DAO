@@ -1,0 +1,185 @@
+
+          -------------------------------------------------------
+          Amber 22 PMEMD                              2022
+          -------------------------------------------------------
+
+| PMEMD implementation of SANDER, Release 22
+
+|  Compiled date/time: Thu Apr 14 20:06:37 2022
+| Run on 04/15/2024 at 12:03:49
+
+|   Executable path: pmemd
+| Working directory: /home/bel/github/TFG_DAO/simple
+|          Hostname: Unknown
+  [-O]verwriting output
+
+File Assignments:
+|   MDIN: min.in                                                                
+|  MDOUT: tremin2.out                                                           
+| INPCRD: tre2.rst7                                                             
+|   PARM: tre2.parm7                                                            
+| RESTRT: min2tre.rst7                                                          
+|   REFC: refc                                                                  
+|  MDVEL: mdvel                                                                 
+|   MDEN: mden                                                                  
+|  MDCRD: mdcrd                                                                 
+| MDINFO: mdinfo                                                                
+|  MDFRC: mdfrc                                                                 
+
+
+ Here is the input file:
+
+  simple generalized Born minimization script                                  
+ &cntrl                                                                        
+   imin=1, ntb=1, maxcyc=100, ntpr=10, cut=8.0, ntmin=1,                       
+ /                                                                             
+                                                                               
+
+
+Note: ig = -1. Setting random seed to   926073 based on wallclock time in 
+      microseconds.
+| irandom = 1, using AMBER's internal random number generator (default).
+ 
+ 
+| Conditional Compilation Defines Used:
+| PUBFFT
+| BINTRAJ
+| EMIL
+
+| Largest sphere to fit in unit cell has radius =    17.159
+
+| New format PARM file being parsed.
+| Version =    1.000 Date = 04/15/24 Time = 12:03:17
+
+| Note: 1-4 EEL scale factors are being read from the topology file.
+
+| Note: 1-4 VDW scale factors are being read from the topology file.
+| INFO:    Virtual site frames will be inferred from bonding patterns.
+| Duplicated    0 dihedrals
+
+| Duplicated    0 dihedrals
+
+--------------------------------------------------------------------------------
+   1.  RESOURCE   USE: 
+--------------------------------------------------------------------------------
+
+ getting new box info from bottom of inpcrd
+ NATOM  =    3658 NTYPES =       9 NBONH =    2720 MBONA  =     940
+ NTHETH =      96 MTHETA =      70 NPHIH =     240 MPHIA  =     176
+ NHPARM =       0 NPARM  =       0 NNB   =    6760 NRES   =     894
+ NBONA  =     940 NTHETA =      70 NPHIA =     176 NUMBND =       9
+ NUMANG =      12 NPTRA  =      16 NATYP =       9 NPHB   =       1
+ IFBOX  =       1 NMXRS  =      45 IFCAP =       0 NEXTRA =     892
+ NCOPY  =       0
+
+| Coordinate Index Table dimensions:     7    7    7
+| Direct force subcell size =     4.9025    5.0417    4.9695
+
+     BOX TYPE: RECTILINEAR
+
+--------------------------------------------------------------------------------
+   2.  CONTROL  DATA  FOR  THE  RUN
+--------------------------------------------------------------------------------
+
+default_name                                                                    
+
+General flags:
+     imin    =       1, nmropt  =       0
+
+Nature and format of input:
+     ntx     =       1, irest   =       0, ntrx    =       1
+
+Nature and format of output:
+     ntxo    =       2, ntpr    =      10, ntrx    =       1, ntwr    =       1
+     iwrap   =       0, ntwx    =       0, ntwv    =       0, ntwe    =       0
+     ioutfm  =       1, ntwprt  =       0, idecomp =       0, rbornstat=      0
+
+Potential function:
+     ntf     =       1, ntb     =       1, igb     =       0, nsnb    =      25
+     ipol    =       0, gbsa    =       0, iesp    =       0
+     dielc   =   1.00000, cut     =   8.00000, intdiel =   1.00000
+
+Frozen or restrained atoms:
+     ibelly  =       0, ntr     =       0
+
+Energy minimization:
+     maxcyc  =     100, ncyc    =      10, ntmin   =       1
+     dx0     =   0.01000, drms    =   0.00010
+
+| Intermolecular bonds treatment:
+|     no_intermolecular_bonds =       1
+
+| Energy averages sample interval:
+|     ene_avg_sampling =       1
+
+Extra-points options:
+     frameon =       1, chngmask=       1
+
+Ewald parameters:
+     verbose =       0, ew_type =       0, nbflag  =       1, use_pme =       1
+     vdwmeth =       1, eedmeth =       1, netfrc  =       0
+     Box X =   34.317   Box Y =   35.292   Box Z =   34.787
+     Alpha =   90.000   Beta  =   90.000   Gamma =   90.000
+     NFFT1 =   36       NFFT2 =   36       NFFT3 =   36
+     Cutoff=    8.000   Tol   =0.100E-04
+     Ewald Coefficient =  0.34864
+     Interpolation order =    4
+|      EXTRA_PTS, trim_bonds: num bonds BEFORE trim =  2720     0
+|      EXTRA_PTS, trim_bonds: num bonds AFTER  trim =  2720     0
+|      EXTRA_PTS, trim_bonds: num bonds BEFORE trim =   940     0
+|      EXTRA_PTS, trim_bonds: num bonds AFTER  trim =    48     0
+|      EXTRA_PTS, trim_theta: num angle BEFORE trim =    96     0
+|      EXTRA_PTS, trim_theta: num angle AFTER  trim =    96     0
+|      EXTRA_PTS, trim_theta: num angle BEFORE trim =    70     0
+|      EXTRA_PTS, trim_theta: num angle AFTER  trim =    70     0
+|      EXTRA_PTS, trim_phi:  num diheds BEFORE trim =   240     0
+|      EXTRA_PTS, trim_phi:  num diheds AFTER  trim =   240     0
+|      EXTRA_PTS, trim_phi:  num diheds BEFORE trim =   176     0
+|      EXTRA_PTS, trim_phi:  num diheds AFTER  trim =   176     0
+
+--------------------------------------------------------------------------------
+   3.  ATOMIC COORDINATES AND VELOCITIES
+--------------------------------------------------------------------------------
+
+default_name                                                                    
+ begin time read from input coords =     0.000 ps
+
+ 
+ Number of triangulated 3-point waters found:      892
+
+     Sum of charges from parm topology file =   0.00400492
+     Forcing neutrality...
+
+| Dynamic Memory, Types Used:
+| Reals              208987
+| Integers           309019
+
+| Nonbonded Pairs Initial Allocation:      610977
+
+--------------------------------------------------------------------------------
+   4.  RESULTS
+--------------------------------------------------------------------------------
+
+ ---------------------------------------------------
+ APPROXIMATING switch and d/dx switch using CUBIC SPLINE INTERPOLATION
+ using   5000.0 points per unit in tabled values
+ TESTING RELATIVE ERROR over r ranging from 0.0 to cutoff
+| CHECK switch(x): max rel err =   0.2738E-14   at   2.422500
+| CHECK d/dx switch(x): max rel err =   0.8332E-11   at   2.782960
+ ---------------------------------------------------
+|---------------------------------------------------
+| APPROXIMATING direct energy using CUBIC SPLINE INTERPOLATION
+|  with   50.0 points per unit in tabled values
+| Relative Error Limit not exceeded for r .gt.   2.47
+| APPROXIMATING direct force using CUBIC SPLINE INTERPOLATION
+|  with   50.0 points per unit in tabled values
+| Relative Error Limit not exceeded for r .gt.   2.89
+|---------------------------------------------------
+
+
+   NSTEP       ENERGY          RMS            GMAX         NAME    NUMBER
+      1       1.4905E+09     4.4171E+08     2.4236E+10     O1          2
+
+ BOND    =    17105.7108  ANGLE   =       53.1418  DIHED      =       87.4348
+ VDWAALS = *************  EEL     =   -10306.2289  HBOND      =        0.0000
+ 1-4 VDW =       18.6359  1-4 EEL =      497.8846  RESTRAINT  =        0.0000
