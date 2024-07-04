@@ -11,7 +11,7 @@ This folder includes all the scripts for the simulation of trehalose free and tr
 
 ### Running AMBER in local
 
-Check the `md*.sh` files, which run something similar to:
+Check the `min*,sh`, `heat*.in` and `md*.sh` files, which run something similar to:
 
 ```
 cp -r ${INPUTDIR}/{*.in,*.parm7,*.rst7} ${SCRATCHDIR}
