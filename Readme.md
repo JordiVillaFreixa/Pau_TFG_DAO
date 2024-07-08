@@ -36,3 +36,5 @@ After installation, add this line to your shell profile:
 ```
 source $HOME/software/amber<version>/amber.sh
 ```
+
+Check [this link](https://computecanada.github.io/molmodsim-amber-md-lesson/09-Amber_flowchart/index.html) for a nice tutorial on running and analyzing AMBER simulations.
