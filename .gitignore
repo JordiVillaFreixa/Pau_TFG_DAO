@@ -1,6 +1,6 @@
-.aux
-.out
-.toc
+*.aux
+*.out
+*.toc
 
 
 
