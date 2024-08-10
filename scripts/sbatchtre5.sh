@@ -6,7 +6,8 @@
 #SBATCH -t 0-10:00
 
 # MINIMIZATION
-cp /home/jvilla/Github/Pau_TFG_DAO/inputs/{min.in,tre5.parm7,tre5.rst7} /home/jvilla/scratch
+cp /home/jvilla/Github/Pau_TFG_DAO/inputs/min.in /home/jvilla/scratch
+cp /home/jvilla/Github/Pau_TFG_DAO/lib/{tre5.parm7,tre5.rst7} /home/jvilla/scratch
 cd /home/jvilla/scratch
 
 pmemd -O -i min.in -p tre5.parm7 -c tre5.rst7 -o mintre5.mdout        -x mintre5.nc -r mintre5.rst7

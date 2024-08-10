@@ -4,6 +4,8 @@ Work adapted from Pau Domínguez ([pauds01](https://github.com/pauds01)) [repo](
 
 ## Structure of this repo
 
+* `pdb`: folder containing all original and modified pdb files, along with transformation scripts
+* `prepare`: folder containing all preparation files for the simulations
 * `inputs`: folder containing all the input files for simulation
 * `lib`: folder containing all the libs needed to run the simulations
 * `scripts`: scripts controlling all steps in the calculations, including the scrpts needed to submit MD runs
