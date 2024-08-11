@@ -6,13 +6,12 @@
 | PMEMD implementation of SANDER, Release 24
 
 |  Compiled date/time: Mon Apr 29 19:47:47 2024
-| Run on 08/11/2024 at 19:35:19
+| Run on 08/11/2024 at 19:45:42
 
 |   Executable path: pmemd
-| Working directory: /Users/jordivilla/scratch/md
-|          Hostname: Unknown
-| WARNING: Stack usage limited by a hard resource limit of   67104768 bytes!
-|          If segment violations occur, get your sysadmin to increase the limit.
+| Working directory: /dades/jvilla/scratch
+|          Hostname: compute01
+
   [-O]verwriting output
 
 File Assignments:
@@ -43,7 +42,7 @@ Explicit md
                                                                                
 
 
-Note: ig = -1. Setting random seed to    59990 based on wallclock time in 
+Note: ig = -1. Setting random seed to    22526 based on wallclock time in 
       microseconds.
 | irandom = 1, using AMBER's internal random number generator (default).
  
