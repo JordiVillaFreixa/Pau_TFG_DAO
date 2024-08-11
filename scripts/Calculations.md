@@ -1,2 +1,0 @@
-# Calculations in this project
-

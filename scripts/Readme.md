@@ -20,3 +20,8 @@ bash submit.sh tre5
 ### Running AMBER in local
 
 Simply extract the fragment of the script you are interested in from the file `submit.sh` and run individual calculations in local.
+
+## Calculations in this project
+
+1. DAO with TPQ, without NAG: Cubic system with OPC water model
+

@@ -1,0 +1,51 @@
+
+          -------------------------------------------------------
+          Amber 24 PMEMD                              2024
+          -------------------------------------------------------
+
+| PMEMD implementation of SANDER, Release 24
+
+|  Compiled date/time: Mon Apr 29 19:47:47 2024
+| Run on 08/11/2024 at 19:35:19
+
+|   Executable path: pmemd
+| Working directory: /Users/jordivilla/scratch/md
+|          Hostname: Unknown
+| WARNING: Stack usage limited by a hard resource limit of   67104768 bytes!
+|          If segment violations occur, get your sysadmin to increase the limit.
+  [-O]verwriting output
+
+File Assignments:
+|   MDIN: md.in                                                                 
+|  MDOUT: mddao_noNAG.mdout                                                     
+| INPCRD: heatdao_noNAG.rst7                                                    
+|   PARM: dao_noNAG.parm7                                                       
+| RESTRT: mddao_noNAG.rst7                                                      
+|   REFC: refc                                                                  
+|  MDVEL: mdvel                                                                 
+|   MDEN: mden                                                                  
+|  MDCRD: mddao_noNAG.nc                                                        
+| MDINFO: mdinfo                                                                
+|  MDFRC: mdfrc                                                                 
+
+
+ Here is the input file:
+
+Explicit md                                                                    
+ &cntrl                                                                        
+   imin=0, irest=1, ntx=5, ntt=3,                                              
+   ntpr=100, ntwx=100, nstlim=500000,                                          
+   dt=0.002, ntt=3, tempi=300,                                                 
+   temp0=300, gamma_ln=2.0, ig=-1,                                             
+   ntp=1, ntc=2, ntf=2, cut=8,                                                 
+   ntb=2, igb=0, ioutfm=1,                                                     
+ /                                                                             
+                                                                               
+
+
+Note: ig = -1. Setting random seed to    59990 based on wallclock time in 
+      microseconds.
+| irandom = 1, using AMBER's internal random number generator (default).
+ 
+
+  Unit    9 Error on OPEN: heatdao_noNAG.rst7                                                                                                                                                                                                                                              

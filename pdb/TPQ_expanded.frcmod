@@ -1,4 +1,4 @@
-Remark line goes here
+File obtained from TPQ.frcmod, but expanded with parm19.dat parameters where needed
 MASS
 n8 14.010        0.530               same as n3 
 
@@ -32,11 +32,10 @@ h1-c3-n8-hn   6    1.800         0.000           3.000      same as X -c3-n3-X ,
 C -n8-c3-c3   1    0.00          0.0             1.         from parm19.dat
 c3-n8-C -XC   1    0.00          0.0             1.         from parm19.dat
 XC-N -c3-c3   1    0.00          0.0             1.         from parm19.dat
-os-c3-N -H    1    2.50        180.0            -2.         from parm19.dat JCC,7,(1986),230
 O -C -n8-c3   1    0.000       180.000           2.000      from parm19.dat
 os-c3-N -XC   1    0.000       180.000           2.000      from parm19.dat
-hn-n8-C -O    1    2.50        180.0            -2.         from parm19.dat JCC,7,(1986),230
-
+O- C -n8-hn   1    0.00        180.0             2.         from parm19.dat 
+os-c3-N -H    1    0.00        180.0             2.         from parm19.dat
 
 
 IMPROPER

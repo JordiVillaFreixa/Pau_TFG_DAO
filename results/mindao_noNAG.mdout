@@ -1,0 +1,47 @@
+
+          -------------------------------------------------------
+          Amber 24 PMEMD                              2024
+          -------------------------------------------------------
+
+| PMEMD implementation of SANDER, Release 24
+
+|  Compiled date/time: Mon Apr 29 19:47:47 2024
+| Run on 08/11/2024 at 19:35:18
+
+|   Executable path: pmemd
+| Working directory: /Users/jordivilla/scratch/md
+|          Hostname: Unknown
+| WARNING: Stack usage limited by a hard resource limit of   67104768 bytes!
+|          If segment violations occur, get your sysadmin to increase the limit.
+  [-O]verwriting output
+
+File Assignments:
+|   MDIN: min.in                                                                
+|  MDOUT: mindao_noNAG.mdout                                                    
+| INPCRD: dao_noNAG.rst7                                                        
+|   PARM: dao_noNAG.parm7                                                       
+| RESTRT: mindao_noNAG.rst7                                                     
+|   REFC: refc                                                                  
+|  MDVEL: mdvel                                                                 
+|   MDEN: mden                                                                  
+|  MDCRD: mindao_noNAG.nc                                                       
+| MDINFO: mdinfo                                                                
+|  MDFRC: mdfrc                                                                 
+
+
+ Here is the input file:
+
+  simple generalized Born minimization script                                  
+ &cntrl                                                                        
+   imin=1,                                                                     
+   ntb=1, maxcyc=1000, ntpr=100, cut=8.0, ntmin=1,                             
+ /                                                                             
+                                                                               
+
+
+Note: ig = -1. Setting random seed to   977189 based on wallclock time in 
+      microseconds.
+| irandom = 1, using AMBER's internal random number generator (default).
+ 
+
+  Unit    9 Error on OPEN: dao_noNAG.rst7                                                                                                                                                                                                                                                  
