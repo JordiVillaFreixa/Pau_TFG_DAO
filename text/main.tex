@@ -36,9 +36,14 @@ In this project, we focus on a probiotic developed by a partner biotech company.
 \begin{figure}[h]
     \centering
     \includegraphics[width =\hsize]{1KSI}
-    \caption{Primary structure of DAO, indicating $\alpha$ helices (yellow), $\beta$ strands (green) and loops (no color). Notice the position of TPQ (in red). Obtained from ChimeraX; PDB code: 1KSI.}
+    \includegraphics[width =0.5\hsize]{activesite_daoamber}
+    \caption{a) Quaternary structure of DAO, indicating $\alpha$ helices (yellow), $\beta$ strands (green) and loops (no color). Notice the position of TPQ (in red). b) Detail of the active site, with the coordination of the Cu$^{+2}$ ion in chain A. Note that the numbering corresponds to that in the AMBER calculation (5 residues are msising in the N-terminal for each of the two units of the biologically active DAO. Obtained with ChimeraX; PDB code: 1KSI.}
 \label{fig:structure}
 \end{figure}
+
+Figure 
+
+
 
 
 Copper amine oxidases (CAOs) have been extensively studied across various domains of life\cite{mcgrath_structure_2009}, revealing a common architectural motif despite differences in origin. Structures from bacteria (Escherichia coli; Arthrobacter globiformis), yeast (Hansenula polymorpha; Pichia pastoris), plants (Pisum sativum), and mammals (Homo sapiens; Bos taurus) share homodimeric arrangements\cite{floris_copper_2009}, each subunit typically comprising around 700 amino acid residues (Figure \ref{fig:seq}). The pioneering E. coli enzyme's structure\cite{parsons_crystal_1995} resembled a mushroom, with the stalk formed by D1 domains and the cap by D2, D3, and D4 domains of each subunit. 
@@ -110,14 +115,23 @@ Through hydrogen bonding, trehalose directly interacts with and influences the i
 		\item Find ways to evaluate the enthalpy and entropy of the water desolvation processes in the mixtures simulations, and apply them to dissect the free energy of solvation in each case.
 	\end{enumerate}
 	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Methodology}
 
 All simulations have been done with Amber following the workflow in Figure \ref{fig:workflow}.  Protein structures where visualized with ChimeraX \cite{Chimerax} and trajectories analyzed with  VMD\cite{HUMP96} and cpptraj\cite{roe_ptraj_2013}, as well as xmgrace\cite{turner_xmgrace_2005} for plotting.
 
+On AMBER calculations:
+\begin{itemize}
+    \item GAFF2 force field\cite{he_fast_2020} for TPQ
+\end{itemize}
+
+
 	\section{Results}
 	\label{sec:results}
-
-Once all the simulations are run, we have to collect all that data. In our case we have to bring the results given from CSUC to our local computer by ssh connection. 
 
 
 \subsection{Trehalose simulaltions results}
@@ -250,7 +264,12 @@ CHARGE 0.0
 In this file there are different contents. At first the HEADNAME and the TAILNAME that identifies which atoms will connect to the previous and the following atoms. The MAINCHAIN identifies the atoms along the chain that connect the head and tail atoms. OMITNAMES list the atoms in TPQ residue that should be removed from final structure as they won't be present in the protein. The PREHEAD and POSTTYPE let prepgen know what atoms types in the surrounding protein will be used for covalent connection. At the end there is the CHARGE line which for each residue is put the total charge of it.
 
 Now with the main chain file called tpq.mc, it has to be used with the following command:
-
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.5\linewidth]{TPQ_topo}
+    \caption{Topology and atom names of the TPQ residue used in this calculation.}
+    \label{fig:TPQ_topo}
+\end{figure}
 \begin{lstlisting}[language=Bash,caption={Prepgen command for TPQ}]
     prepgen -i tpq2.ac -o tpq.prepin -m tpq.mc -rn TPQ
 \end{lstlisting}

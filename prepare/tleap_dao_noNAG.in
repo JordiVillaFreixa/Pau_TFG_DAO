@@ -1,16 +1,16 @@
-# tleap for the preparation of the water simulations (no trehalose)
+source leaprc.gaff2
 source leaprc.protein.ff19SB
 source leaprc.water.opc
 source leaprc.GLYCAM_06j-1
-loadAmberPrep ../lib/tpq.prepin
-loadAmberParams ../lib/frcmod.tpq
-dao=loadpdb ../pdb/daocharmnoH.pdb
+loadAmberPrep ../pdb/TPQ.prepin
+loadAmberParams ../pdb/TPQ_expanded.frcmod
+dao=loadpdb ../pdb/dao_noNAG.pdb
 bond dao.132.SG dao.153.SG
 bond dao.314.SG dao.340.SG
 bond dao.774.SG dao.795.SG
 bond dao.956.SG dao.982.SG
-addions dao NA 0
-solvatebox dao OPCBOX 10.0
-savepdb dao ../pdb/daowat.pdb
+#addions dao NA 0
+#solvatebox dao OPCBOX 10.0
+savepdb dao ../pdb/dao_noNAG_wat.pdb
 saveAmberParm dao ../lib/dao.parm7 ../lib/dao.rst7
 quit
