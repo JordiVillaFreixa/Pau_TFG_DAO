@@ -1,6 +1,6 @@
 #!/bin/bash
 cat <<EOT >sbatch$1.sh
-#!/bin/bash
+#!/bin/bash -x
 #SBATCH -J $1
 #SBATCH -e $SCRATCHDIR/%J.%j.err
 #SBATCH -o $SCRATCHDIR/%J.%j.out
@@ -8,6 +8,7 @@ cat <<EOT >sbatch$1.sh
 #SBATCH -t 0-10:00
 
 # MINIMIZATION
+echo "Running MINIMIZATION for $1"
 cp $INPUTDIR/{min.in,$1.parm7,$1.rst7} $SCRATCHDIR
 cd $SCRATCHDIR
 
@@ -16,6 +17,7 @@ pmemd -O -i min.in -p $1.parm7 -c $1.rst7 -o min$1.mdout \
 cp ./min$1.mdout $RESULTSDIR
 
 # HEATING
+echo "Running HEATING for $1"
 cp $INPUTDIR/heat.in $SCRATCHDIR
 cd $SCRATCHDIR
 
@@ -24,6 +26,7 @@ pmemd -O -i heat.in -p $1.parm7 -c min$1.rst7 -o heat$1.mdout \
 cp ./heat$1.mdout $RESULTSDIR
 
 # PRODUCTION
+echo "Running PRODUCTION for $1"
 cp $INPUTDIR/md.in $SCRATCHDIR
 cd $SCRATCHDIR
 

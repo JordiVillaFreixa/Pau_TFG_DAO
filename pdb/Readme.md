@@ -1,4 +1,10 @@
 # Preparing structure files
+- [Preparing structure files](#preparing-structure-files)
+  - [Preliminary installations](#preliminary-installations)
+  - [Obtain PDB files to work in AMBER](#obtain-pdb-files-to-work-in-amber)
+  - [Create library entries for cofactors](#create-library-entries-for-cofactors)
+    - [Library entry for TPQ](#library-entry-for-tpq)
+    - [Library entry for NAG](#library-entry-for-nag)
 
 ## Preliminary installations
 

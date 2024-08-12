@@ -1,20 +1,24 @@
-Heating
+Heat
  &cntrl
-   imin=0, irest=0, ntx=1,
-   ntpr=1, ntwx=100, 
-   nstlim=50000,
-   dt=0.002, ntt=3, tempi=0,
-   temp0=300, 
-   gamma_ln=5.0, 
-   ig=-1,
-   ntp=0, ntc=2, ntf=2, cut=8,
-   ntb=1, igb=0, ioutfm=1, nmropt=1,
+  nstlim=1000,
+  imin=0,
+  ntx=1,
+  irest=0,
+  dt=0.002,
+  ntf=2,  ntc=2, ! shake
+  ntpr=10,
+  ntwx=10,
+  cut=8.0,
+  ntb=1,         ! constant volume perodic MD
+  ntp=0,
+  ntt=3, tempi=0.0, temp0=300.0, ! Berendsen
+  gamma_ln=2.0,
+  nmropt=1,
+  ig=-1,
  /
- &wt
-   TYPE='TEMP0', ISTEP1=1, ISTEP2=100000,
-   VALUE1=10.0, VALUE2=300.0,
- /
- &wt TYPE='END' 
- /
+&wt type='TEMP0', istep1=0, istep2=9000, value1=0.0, value2=300.0 /
+&wt type='TEMP0', istep1=9001, istep2=10000, value1=300.0, value2=300.0 /
+&wt type='END' /
+
 
  
