@@ -6,7 +6,7 @@
 | PMEMD implementation of SANDER, Release 24
 
 |  Compiled date/time: Mon Apr 29 19:47:47 2024
-| Run on 08/12/2024 at 18:12:55
+| Run on 08/12/2024 at 20:08:47
 
 |   Executable path: pmemd
 | Working directory: /Users/jordivilla/scratch/md
@@ -37,7 +37,7 @@ Explicit md
  /                                                                             
  Production                                                                    
  &cntrl                                                                        
-  nstlim=500,                                                                  
+  nstlim=150000,                                                               
   imin=0,                                                                      
   ntx=5,                                                                       
   irest=1,                                                                     
@@ -45,9 +45,10 @@ Explicit md
   ntf=2,                                                                       
   ntc=2,                                                                       
   temp0=300.0,                                                                 
-  ntpr=10,                                                                     
-  ntwx=10,                                                                     
-  cut=8.0,                                                                     
+  ntpr=100,       ! how often to save output energy in mdout                   
+  ntwx=1000,      ! how often to save the restart file                         
+  ntwr=500,       ! how often to save the trajectory file                      
+  cut=9.0,                                                                     
   ntb=2,                                                                       
   ntp=1,                                                                       
   ntt=3,                                                                       
@@ -57,7 +58,7 @@ Explicit md
  /                                                                             
 
 
-Note: ig = -1. Setting random seed to   233707 based on wallclock time in 
+Note: ig = -1. Setting random seed to   883541 based on wallclock time in 
       microseconds.
 | irandom = 1, using AMBER's internal random number generator (default).
  
@@ -214,62 +215,62 @@ default_name
 |
 |     Routine           Sec        %
 |     ------------------------------
-|     Nonbond           4.11   97.57
-|     Bond              0.01    0.13
-|     Angle             0.01    0.20
-|     Dihedral          0.04    0.87
+|     Nonbond           3.65   97.75
+|     Bond              0.00    0.13
+|     Angle             0.01    0.19
+|     Dihedral          0.03    0.80
 |     Shake             0.00    0.00
-|     RunMD             0.05    1.23
-|     Other             0.00    0.00
+|     RunMD             0.04    1.13
+|     Other             0.00    0.01
 |     ------------------------------
-|     Total             4.21
+|     Total             3.73
 
 |  PME Nonbond Pairlist CPU Time:
 |
 |     Routine              Sec        %
 |     ---------------------------------
-|     Set Up Cit           0.01    0.27
-|     Build List           2.47   58.67
+|     Set Up Cit           0.01    0.28
+|     Build List           2.07   55.60
 |     ---------------------------------
-|     Total                2.48   58.94
+|     Total                2.09   55.88
 
 |  PME Direct Force CPU Time:
 |
 |     Routine              Sec        %
 |     ---------------------------------
-|     NonBonded Calc       1.27   30.12
-|     Exclude Masked       0.02    0.57
-|     Other                0.03    0.76
+|     NonBonded Calc       1.21   32.49
+|     Exclude Masked       0.02    0.66
+|     Other                0.03    0.72
 |     ---------------------------------
-|     Total                1.32   31.45
+|     Total                1.26   33.87
 
 |  PME Reciprocal Force CPU Time:
 |
 |     Routine              Sec        %
 |     ---------------------------------
-|     1D bspline           0.02    0.47
-|     Grid Charges         0.04    1.03
-|     Scalar Sum           0.02    0.54
-|     Gradient Sum         0.07    1.58
-|     FFT                  0.15    3.55
+|     1D bspline           0.02    0.46
+|     Grid Charges         0.05    1.25
+|     Scalar Sum           0.02    0.59
+|     Gradient Sum         0.07    1.75
+|     FFT                  0.15    3.94
 |     ---------------------------------
-|     Total                0.30    7.18
+|     Total                0.30    7.99
 
 |  Final Performance Info:
 |     -----------------------------------------------------
 |     Average timings for last       1 steps:
-|     Elapsed(s) =       6.22 Per Step(ms) =    6224.53
-|         ns/day =       0.01   seconds/ns = 6224530.03
+|     Elapsed(s) =       4.13 Per Step(ms) =    4128.83
+|         ns/day =       0.02   seconds/ns = 4128827.88
 |
 |     Average timings for all steps:
-|     Elapsed(s) =       6.22 Per Step(ms) =    6224.53
-|         ns/day =       0.01   seconds/ns = 6224530.03
+|     Elapsed(s) =       4.13 Per Step(ms) =    4128.83
+|         ns/day =       0.02   seconds/ns = 4128827.88
 |     -----------------------------------------------------
 
-|  Setup CPU time:            2.50 seconds
-|  NonSetup CPU time:         4.21 seconds
-|  Total CPU time:            6.72 seconds     0.00 hours
+|  Setup CPU time:            1.96 seconds
+|  NonSetup CPU time:         3.73 seconds
+|  Total CPU time:            5.69 seconds     0.00 hours
 
-|  Setup wall time:           5    seconds
-|  NonSetup wall time:        6    seconds
-|  Total wall time:          11    seconds     0.00 hours
+|  Setup wall time:           2    seconds
+|  NonSetup wall time:        4    seconds
+|  Total wall time:           6    seconds     0.00 hours

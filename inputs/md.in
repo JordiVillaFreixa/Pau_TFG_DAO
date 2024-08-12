@@ -4,19 +4,20 @@ Explicit md
  /
  Production
  &cntrl
-  nstlim=500,
+  nstlim=150000,
   imin=0,
-  ntx=5,
+  ntx=5,          ! use coordinates and velocities from restart file
   irest=1,
   dt=0.002,
   ntf=2,
   ntc=2,
   temp0=300.0,
-  ntpr=10,
-  ntwx=10,
-  cut=8.0,
-  ntb=2,
-  ntp=1,
+  ntpr=100,       ! how often to save output energy in mdout
+  ntwx=1000,      ! how often to save the restart file
+  ntwr=500,       ! how often to save the trajectory file
+  cut=10.0,
+  ntb=2,          ! constant pressure boundary conditions
+  ntp=1,          ! isotropic scaling to maintain the temperature
   ntt=3,
   barostat=1,
   gamma_ln=2.0,

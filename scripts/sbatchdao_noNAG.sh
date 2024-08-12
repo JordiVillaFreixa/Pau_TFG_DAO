@@ -5,14 +5,6 @@
 #SBATCH -n 1
 #SBATCH -t 0-10:00
 
-# MINIMIZATION
-echo "Running MINIMIZATION for dao_noNAG"
-cp /Users/jordivilla/Github/Treball/Pau_TFG_DAO/inputs/{min.in,dao_noNAG.parm7,dao_noNAG.rst7} /Users/jordivilla/scratch/md
-cd /Users/jordivilla/scratch/md
-
-pmemd -O -i min.in -p dao_noNAG.parm7 -c dao_noNAG.rst7 -o mindao_noNAG.mdout        -x mindao_noNAG.nc -r mindao_noNAG.rst7
-cp ./mindao_noNAG.mdout /Users/jordivilla/Github/Treball/Pau_TFG_DAO/results
-
 # HEATING
 echo "Running HEATING for dao_noNAG"
 cp /Users/jordivilla/Github/Treball/Pau_TFG_DAO/inputs/heat.in /Users/jordivilla/scratch/md
