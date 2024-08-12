@@ -1,8 +1,0 @@
-source leaprc.protein.ff14SB
-set default PBRadii mbondi3
-loadAmberPrep cro.prepin
-loadAmberParams frcmod2.cro
-loadAmberParams frcmod1.cro
-x = loadPDB gfp2.pdb
-saveAmberParm x gfp.parm7 gfp.rst7
-quit

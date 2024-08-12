@@ -1,3 +1,0 @@
-AAG A   131    AAG     1
-AAG C     1    AAG     2
-AAG C     2    AAG     3
