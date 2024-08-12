@@ -1,0 +1,15 @@
+source leaprc.protein.ff14SB
+source leaprc.water.tip3p
+source leaprc.gaff2
+
+TPQ = loadmol2 TPQ.mol2
+loadAmberParams TPQ_expanded.frcmod
+
+x = loadpdb tripeptTPQ.pdb
+
+deleteBond x.0.C x.2.N
+
+set default PBradii mbondi3
+set default nocenter on
+saveAmberParm x prmtop rst7
+quit

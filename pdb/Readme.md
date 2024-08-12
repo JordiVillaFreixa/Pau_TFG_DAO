@@ -1,18 +1,23 @@
 # Preparing structure files
 - [Preparing structure files](#preparing-structure-files)
   - [Preliminary installations](#preliminary-installations)
+    - [`openbabel`](#openbabel)
   - [Obtain PDB files to work in AMBER](#obtain-pdb-files-to-work-in-amber)
-  - [Create library entries for cofactors](#create-library-entries-for-cofactors)
-    - [Library entry for TPQ](#library-entry-for-tpq)
-    - [Library entry for NAG](#library-entry-for-nag)
+    - [The enzyme DAO](#the-enzyme-dao)
+    - [The ligand NAG](#the-ligand-nag)
+    - [The modified TPQ residue](#the-modified-tpq-residue)
+    - [Trehalose from drugbank](#trehalose-from-drugbank)
 
 ## Preliminary installations
 
-* cmake (for openbabel):
+### `openbabel`
+
+First install `cmake`. In Mac OS:
+
 ```
 brew install cmake
 ```
-* openbabel from github:
+Now, install `openbabel` from github:
 ```
 git clone git@github.com:openbabel/openbabel.git
 cd openbabel
@@ -27,30 +32,16 @@ sudo make install
 
 ## Obtain PDB files to work in AMBER
 
-This folder contains all PDB files used in the calculation
+Download the original PDB file for the protein and accessory files for the coordinates of cofactors and sugars.
 
-1. Download the original PDB file for the protein and accessory files for the coordinates of cofactors and sugars (the enzyme DAO, its ligand NAG, the modified residue TPQ and trehalose):
-   * the enzyme DAO
+This is a step by step collection of instructions for each fragmnent of the desired simulated system. Alternatively, use the [`PDB_work.ipynb`](https://github.com/JordiVillaFreixa/Pau_TFG_DAO/blob/main/pdb/PDB_work.ipynb) notebook to obtain the pdb and cif files. 
+
+### The enzyme DAO
 ```
 wget -nc https://files.rcsb.org/view/1KSI.pdb
 ```
-   * the ligand NAG
-``` 
-wget -nc https://files.rcsb.org/ligands/download/NAG.cif
-```
-   * the modified TPQ residue
-```
-wget -nc https://files.rcsb.org/ligands/view/TPQ_ideal.sdf
-obabel -i sdf TPQ_ideal.sdf -o pdb -O TPQ_ideal.pdb
-sed -i -e 's/UNL/TPQ/' TPQ_ideal.pdb
-```
-After this last step, the `TPQ_ideal.pdb` contains a list of atom names that does not correspond to the proper naming in the PDB. We simply extract the proper names from the `TPQ.cif` file and add them to `TPQ_ideal.pdb`, creating `TPQ_final.pdb`, that we will use later.
-   * trehalose from drugbank:
-```
-wget -nc https://go.drugbank.com/structures/small_molecule_drugs/DB12310.sdf
-```
 
-Alternatively, use the `PDB_work.ipynb` notebook to obtain the pdb and cif files. 
+
 
 1. Get the protein PDB file prepared for AMBER:
 
@@ -156,13 +147,52 @@ SSBOND   4 CYS B  319    CYS B  345                          1555   1555  1.98
 Note that there are 5 missing residues in the N-terminal of the PDB file for each chain, which implies that the AMBER numbering is lowered by 5 with respect to the PDB numbering for all residues.
 
 
-## Create library entries for cofactors
 
-### Library entry for TPQ
-
-1. Use `antechamber` to [prepare the library](https://docs.bioexcel.eu/2020_06_09_online_ambertools4cp2k/04-parameters/index.html) for TPQ generating a [mol2 file](https://chemyang.ccnu.edu.cn/ccb/server/AIMMS/mol2.pdf). For an example on how to proceded to parameterize a residue with general Gaussian RESP charges, check [this web page](https://carlosramosg.com/amber-custom-residue-parameterization):
+### The ligand NAG
+``` 
+wget -nc https://files.rcsb.org/ligands/download/NAG.cif
 ```
-antechamber -fi pdb -i TPQ_final.pdb -bk TPQ -fo ac -o TPQ.ac -c bcc -nc 0 -rn TPQ -at gaff2
+
+```
+antechamber -fi ccif -i NAG.cif -fo ac -o nag3.ac -c bcc -at amber -nc 0 -rn NAG -bk NAG
+```
+
+### The modified TPQ residue
+```
+wget -nc https://files.rcsb.org/ligands/view/TPQ_ideal.sdf
+obabel -i sdf TPQ_ideal.sdf -o pdb -O TPQ_ideal.pdb
+sed -i -e 's/UNL/TPQ/' TPQ_ideal.pdb
+```
+After this last step, the `TPQ_ideal.pdb` contains a list of atom names that does not correspond to the proper naming in the PDB. We simply extract the proper names from the `TPQ.cif` file and add them to `TPQ_ideal.pdb`, creating `TPQ_final.pdb`, that we will use later. See how the file is AMBER-friendly (no CONECT lines):
+```
+ATOM      1  N   TPQ     1      -5.202  -3.337  -2.620  1.00  0.00           N  
+ATOM      2  CA  TPQ     1      -4.504  -2.205  -2.013  1.00  0.00           C  
+ATOM      3  CB  TPQ     1      -3.306  -1.797  -2.878  1.00  0.00           C  
+ATOM      4  C   TPQ     1      -5.534  -1.096  -1.870  1.00  0.00           C  
+ATOM      5  O   TPQ     1      -6.472  -0.902  -2.631  1.00  0.00           O  
+ATOM      6  OXT TPQ     1      -5.302  -0.323  -0.776  1.00  0.00           O  
+ATOM      7  C1  TPQ     1      -2.567  -0.628  -2.304  1.00  0.00           C  
+ATOM      8  C2  TPQ     1      -1.505  -0.918  -1.305  1.00  0.00           C  
+ATOM      9  O2  TPQ     1      -1.234  -2.064  -0.959  1.00  0.00           O  
+ATOM     10  C3  TPQ     1      -0.770   0.229  -0.729  1.00  0.00           C  
+ATOM     11  C4  TPQ     1      -1.036   1.489  -1.085  1.00  0.00           C  
+ATOM     12  O4  TPQ     1      -0.360   2.569  -0.558  1.00  0.00           O  
+ATOM     13  C5  TPQ     1      -2.090   1.783  -2.082  1.00  0.00           C  
+ATOM     14  O5  TPQ     1      -2.350   2.931  -2.427  1.00  0.00           O  
+ATOM     15  C6  TPQ     1      -2.827   0.637  -2.655  1.00  0.00           C  
+ATOM     16  H   TPQ     1      -6.178  -3.432  -2.445  1.00  0.00           H  
+ATOM     17  H2  TPQ     1      -4.652  -4.071  -3.009  1.00  0.00           H  
+ATOM     18  HA  TPQ     1      -4.154  -2.482  -1.011  1.00  0.00           H  
+ATOM     19  HB2 TPQ     1      -3.623  -1.545  -3.897  1.00  0.00           H  
+ATOM     20  HB3 TPQ     1      -2.597  -2.628  -2.961  1.00  0.00           H  
+ATOM     21  HXT TPQ     1      -5.946   0.405  -0.642  1.00  0.00           H  
+ATOM     22  H3  TPQ     1       0.000   0.000   0.000  1.00  0.00           H  
+ATOM     23  HO4 TPQ     1      -0.987   3.197  -0.184  1.00  0.00           H  
+ATOM     24  H6  TPQ     1      -3.597   0.871  -3.383  1.00  0.00           H  
+```
+1. Use `antechamber` to [prepare the library](https://docs.bioexcel.eu/2020_06_09_online_ambertools4cp2k/04-parameters/index.html) for TPQ generating an AC file (we could directly obtain a [mol2 file](https://chemyang.ccnu.edu.cn/ccb/server/AIMMS/mol2.pdf)) with AM1-BCC charges. For an example on how to proceded to parameterize a residue with general Gaussian RESP charges, check [this web page](https://carlosramosg.com/amber-custom-residue-parameterization):
+```
+antechamber -fi pdb -i TPQ_final.pdb -bk TPQ -fo ac -o TPQ.ac -c bcc -nc 0 -rn TPQ -at amber
 ```
 2. Prepare a main chain file for TPQ that describes the connectivity of the residue in the peptide chain:
 ```
@@ -178,15 +208,30 @@ POST_TAIL_TYPE N
 CHARGE 0.0
 EOF
 ```
-3. Use the new `TPQ.mc` file to generate the residue entry and parameterize it (see the description of the PREP input files [here](https://ambermd.org/doc/prep.html); see also [this tutorial](https://ambermd.org/tutorials/pengfei/)):
+Use the new `TPQ.mc` file to generate the residue entry and parameterize it (see the description of the PREP input files [here](https://ambermd.org/doc/prep.html); see also [this tutorial](https://ambermd.org/tutorials/pengfei/)):
 ```
 prepgen -i TPQ.ac -o TPQ.prepin -m TPQ.mc -rn TPQ
+```
+Now, the `TPQ.prepin` file contains an `NT` atom type for the main chain Nitrogen atom:
+```
+   4  N     NT    M    3   2   1     1.540   111.208  -180.000 -0.881554
+```
+
+ This should be changed into `N` atom type:
+
+```
+(...)
+   4  N     N     M    3   2   1     1.540   111.208  -180.000 -0.881554
+(...)
+```
+
+Finally, generate the `TPQ.frcmod` file that contains the parameters for the new residue:
+
+```
 parmchk2 -i TPQ.ac -f ac -o TPQ.frcmod -s gaff2
 ```
 
-### Library entry for NAG
-
-4. Repeat the process for NAG:
+### Trehalose from drugbank
 ```
-antechamber -fi ccif -i NAG.cif -fo ac -o nag3.ac -c bcc -at amber -nc 0 -rn NAG -bk NAG
+wget -nc https://go.drugbank.com/structures/small_molecule_drugs/DB12310.sdf
 ```
