@@ -1,5 +1,5 @@
 #!/bin/bash
-cat <<EOT >sbatch$1.sh
+cat <<EOT >$SCRATCHDIR/sbatch$1.sh
 #!/bin/bash -x
 #SBATCH -J $1
 #SBATCH -e $SCRATCHDIR/%J.%j.err
@@ -31,4 +31,4 @@ cd $SCRATCHDIR
 pmemd -O -i md.in -p $1.parm7 -c heat$1.rst7 -o md$1.mdout \
        -x md$1.nc -r md$1.rst7
 EOT
-sbatch sbatch$1.sh
+sbatch $SCRATCHDIR/sbatch$1.sh
