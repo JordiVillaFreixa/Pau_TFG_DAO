@@ -14,7 +14,6 @@ cd $SCRATCHDIR
 
 pmemd -O -i min.in -p $1.parm7 -c $1.rst7 -o min$1.mdout \
        -x min$1.nc -r min$1.rst7
-cp ./min$1.mdout $RESULTSDIR
 
 # HEATING
 echo "Running HEATING for $1"
@@ -23,7 +22,6 @@ cd $SCRATCHDIR
 
 pmemd -O -i heat.in -p $1.parm7 -c min$1.rst7 -o heat$1.mdout \
        -x heat$1.nc -r heat$1.rst7
-cp ./heat$1.mdout $RESULTSDIR
 
 # PRODUCTION
 echo "Running PRODUCTION for $1"
@@ -32,6 +30,5 @@ cd $SCRATCHDIR
 
 pmemd -O -i md.in -p $1.parm7 -c heat$1.rst7 -o md$1.mdout \
        -x md$1.nc -r md$1.rst7
-cp ./md$1.mdout $RESULTSDIR
 EOT
 sbatch sbatch$1.sh

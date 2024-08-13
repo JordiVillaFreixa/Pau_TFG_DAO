@@ -5,14 +5,6 @@
 #SBATCH -n 1
 #SBATCH -t 0-10:00
 
-# HEATING
-echo "Running HEATING for dao_noNAG"
-cp /Users/jordivilla/Github/Treball/Pau_TFG_DAO/inputs/heat.in /Users/jordivilla/scratch/md
-cd /Users/jordivilla/scratch/md
-
-pmemd -O -i heat.in -p dao_noNAG.parm7 -c mindao_noNAG.rst7 -o heatdao_noNAG.mdout        -x heatdao_noNAG.nc -r heatdao_noNAG.rst7
-cp ./heatdao_noNAG.mdout /Users/jordivilla/Github/Treball/Pau_TFG_DAO/results
-
 # PRODUCTION
 echo "Running PRODUCTION for dao_noNAG"
 cp /Users/jordivilla/Github/Treball/Pau_TFG_DAO/inputs/md.in /Users/jordivilla/scratch/md

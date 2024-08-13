@@ -1,9 +1,6 @@
 Explicit md
  &cntrl
   igb=0, ioutfm=1,
- /
- Production
- &cntrl
   nstlim=150000,
   imin=0,
   ntx=5,          ! use coordinates and velocities from restart file
@@ -11,6 +8,7 @@ Explicit md
   dt=0.002,
   ntf=2,
   ntc=2,
+  tempi=300.0,
   temp0=300.0,
   ntpr=100,       ! how often to save output energy in mdout
   ntwx=1000,      ! how often to save the restart file
