@@ -13,11 +13,13 @@ Explicit md
   ntpr=100,       ! how often to save output energy in mdout
   ntwx=1000,      ! how often to save the restart file
   ntwr=500,       ! how often to save the trajectory file
-  cut=10.0,
+  cut=9.0,
   ntb=2,          ! constant pressure boundary conditions
   ntp=1,          ! isotropic scaling to maintain the temperature
   ntt=3,
   barostat=1,
   gamma_ln=2.0,
   ig=-1,
+  ntave=20000,    ! how often the average values are calculated to check for convergence
+  idecomp=1,      ! decompose per residue energies
  /
