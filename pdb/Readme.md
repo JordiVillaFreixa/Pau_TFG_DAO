@@ -6,7 +6,8 @@
     - [The enzyme DAO](#the-enzyme-dao)
     - [The ligand NAG](#the-ligand-nag)
     - [The modified TPQ residue](#the-modified-tpq-residue)
-    - [Trehalose from drugbank](#trehalose-from-drugbank)
+    - [Trehalose](#trehalose)
+  - [Generating the DAO+nTRE PDB files](#generating-the-daontre-pdb-files)
 
 ## Preliminary installations
 
@@ -231,7 +232,64 @@ Finally, generate the `TPQ.frcmod` file that contains the parameters for the new
 parmchk2 -i TPQ.ac -f ac -o TPQ.frcmod -s gaff2
 ```
 
-### Trehalose from drugbank
+### Trehalose
+
+We can get the sdf from drugbank using 
 ```
 wget -nc https://go.drugbank.com/structures/small_molecule_drugs/DB12310.sdf
 ```
+but, in this case, I used the [PDB_work.ipynb](https://github.com/JordiVillaFreixa/Pau_TFG_DAO/blob/main/pdb/PDB_work.ipynb) notebook to generate `trehalose.pdb`
+
+```
+grep -v CONECT trehalose.pdb >trehalose_final.pdb
+antechamber -fi pdb -i trehalose_final.pdb -bk TRE -fo mol2 -o TRE.mol2 -c bcc -nc 0 -rn TRE -at amber
+parmchk2 -i TRE.mol2 -f mol2 -o TRE.frcmod -s amber
+```
+
+## Generating the DAO+nTRE PDB files
+
+In order to build the systems containing the protein DAO and a certain number *n* of copies of the trehalose (TRE) molecule, we make use of `packmol`:
+
+```
+packmol < packmol_dao_TRE.in
+```
+
+where `packmol_dao_TRE.in` is:
+```
+# All atoms from diferent molecules will be at least 2.0 Angstroms apart
+tolerance 6.0
+
+# The type of the files will be pdb
+filetype pdb
+
+# The name of the output file
+output dao_noNAG_TRE.pdb
+
+# put the COM of the solute at the center of the box
+# obtained from Chimera on dao_noNAG.pdb using Select + Tools/StructureAnalysis/Planes-Axes-Centroids 
+# I leave the rotation to 0 by now, as the DAO structure in the 1KSI pdb file is relatively well oriented with respect to the final MD box
+structure dao_noNAG.pdb
+  number 1
+  fixed 22.86382851 51.27007338 2.5412616 0. 0. 0.
+  center
+end structure
+
+# in order to know the size of the box where to put the trehalose molecules, we use the info from 
+# tleap -f tleap_dao_noNAG.in > tleap_dao_noNAG.log
+# which provides the bounding box of the trehalose free MD run, that we wish to maintain:
+#   Total bounding box for atom centers:  104.841 102.718 137.764
+# so, we take as the lower and upper coordinates of the box:
+# Xmin=22.864-104.841/2=-29.557
+# Xmax=22.864+104.841/2=75.285
+# Ymin=51.270-102.718/2=-0.089
+# Ymax=51.270+102.718/2=102.629
+# Zmin=2.541-137.764/2=-66.341
+# Zmax=2.541+137.764/2=71.423
+# add now add trehalose molecules
+structure trehalose_final.pdb
+  number 300     # the number of TRE molecules required
+  inside box -29.557 -0.089 -66.341 75.285 102.629 71.423
+end structure
+```
+
+To facilitate the generation of a collection of systems with different number of trehalose molecules, check the script `packmol_dao_TRE.sh`.
