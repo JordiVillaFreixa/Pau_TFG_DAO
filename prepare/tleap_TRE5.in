@@ -1,0 +1,11 @@
+source leaprc.protein.ff19SB
+source leaprc.water.opc
+source leaprc.GLYCAM_06j-1
+loadAmberPrep ../pdb/TRE.prepin
+loadAmberParams ../pdb/TRE.frcmod
+TRE=loadpdb ../pdb/TRE5.pdb
+solvatebox TRE OPCBOX 1.0
+savepdb TRE ../pdb/TRE5_wat.pdb
+check TRE
+saveAmberParm TRE ../inputs/TRE5.parm7 ../inputs/TRE5.rst7
+quit

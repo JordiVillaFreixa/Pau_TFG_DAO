@@ -3,6 +3,7 @@ tolerance 2.0
 
 # The type of the files will be pdb
 filetype pdb
+add_amber_ter
 
 # The name of the output file
 output dao_noNAG_TRE500.pdb

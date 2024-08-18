@@ -242,8 +242,9 @@ but, in this case, I used the [PDB_work.ipynb](https://github.com/JordiVillaFrei
 
 ```
 grep -v CONECT trehalose.pdb >trehalose_final.pdb
-antechamber -fi pdb -i trehalose_final.pdb -bk TRE -fo mol2 -o TRE.mol2 -c bcc -nc 0 -rn TRE -at amber
-parmchk2 -i TRE.mol2 -f mol2 -o TRE.frcmod -s amber
+antechamber -fi pdb -i trehalose_final.pdb -fo ac -o TRE.ac -c bcc -bk TRE -nc 0 -rn TRE -at amber
+prepgen -i TRE.ac -o TRE.prepin -rn TRE
+parmchk2 -i TRE.prepin -f prepi -o TRE.frcmod -a Y -s amber
 ```
 
 ## Generating the DAO+nTRE PDB files
@@ -261,6 +262,7 @@ tolerance 6.0
 
 # The type of the files will be pdb
 filetype pdb
+add_amber_ter
 
 # The name of the output file
 output dao_noNAG_TRE.pdb
@@ -292,4 +294,6 @@ structure trehalose_final.pdb
 end structure
 ```
 
-To facilitate the generation of a collection of systems with different number of trehalose molecules, check the script `packmol_dao_TRE.sh`.
+To facilitate the generation of a collection of systems with different number of trehalose molecules, check the script [`packmol_dao_TRE.sh`](https://github.com/JordiVillaFreixa/Pau_TFG_DAO/blob/main/pdb/packmol_dao_TRE.sh). Here is an example of file gerenated with DAO plus 500 trehalose molecules using such script:
+
+![TRE500](../text/figures/dao_noNAG_TRE500.png)

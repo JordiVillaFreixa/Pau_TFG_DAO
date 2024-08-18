@@ -31,4 +31,7 @@ cd $SCRATCHDIR
 pmemd -O -i md.in -p $1.parm7 -c heat$1.rst7 -o md$1.mdout \
        -x md$1.nc -r md$1.rst7
 EOT
+echo "To submit in local, use:
+bash $SCRATCHDIR/sbatch$1.sh
+otherwise, wait for slurm to do the magic"
 sbatch $SCRATCHDIR/sbatch$1.sh
