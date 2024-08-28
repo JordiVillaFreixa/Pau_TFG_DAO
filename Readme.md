@@ -24,6 +24,7 @@ source /path/to/set_scratchdir.sh
 Download the last versions of Amber and AmberTools from the [AMBER web site](https://ambermd.org/GetAmber.php). Then:
 
 ```
+bunzip2 Amber*.bz2
 tar xvf Amber<version>.tar 
 tar xvf AmberTools<version>.tar 
 mkdir ~/Software
@@ -32,6 +33,8 @@ cd ~/Software/amber<version>_src/build
 ./run_cmake
 make install
 ```
+
+NOTE: if you want to install the `<>.MPI` or `<>.CUDA` versions of the executables, you need to edit the `run_cmake` and set `TRUE` the corresponding flags for your architecture.
 
 After installation, add this line to your shell profile:
 
