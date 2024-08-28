@@ -43,3 +43,7 @@ source $HOME/software/amber<version>/amber.sh
 ```
 
 Check [this link](https://computecanada.github.io/molmodsim-amber-md-lesson/09-Amber_flowchart/index.html) for a nice tutorial on running and analyzing AMBER simulations.
+
+### VMD
+
+Most of visualization is made with VMD. The [project's web side](https://www.ks.uiuc.edu/Development/Download/download.cgi?PackageName=VMD) contains detailed instructions on how to install it.
