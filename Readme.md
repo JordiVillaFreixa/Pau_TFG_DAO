@@ -1,4 +1,4 @@
-# Effect of trehalose on the stability of DAO
+# Pau Domínguez TFG
 
 Work adapted from Pau Domínguez ([pauds01](https://github.com/pauds01)) [repo](https://github.com/pauds01/TFG_DAO) during his BSc final research work at the Degree of Biotecnology, Faculty of Sciences, Engineering and Technology, Universitat de Vic - Universitat Central de Catalunya. The work has been taken for completion by [Jordi Villà](https://github.com/JordiVillaFreixa) in  [this repo](https://github.com/JordiVillaFreixa/Pau_TFG_DAO).
 
