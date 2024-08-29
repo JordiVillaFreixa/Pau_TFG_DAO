@@ -5,7 +5,7 @@ then
     echo "You should define the \$BACKUPFOLDER variable before runnning the script"
     exit
 else
-    echo "\$BACKUPFOLDER defined and pointing towards $BACKUPFOLDER"
+    echo "\$BACKUPFOLDER defined and pointing at $BACKUPFOLDER"
     echo "############### rsyncing lavandula ####################"
     rsync -Pchav --stats lavandula:/home/jvilla/scratch/ $BACKUPFOLDER/lavandula 
     echo "############### rsyncing lapalma ####################"
