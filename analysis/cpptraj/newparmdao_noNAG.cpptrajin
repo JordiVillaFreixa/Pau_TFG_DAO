@@ -1,0 +1,4 @@
+parm ../../inputs/dao_noNAG.parm7
+parmstrip :WAT
+parmwrite out /home/jordivilla/scratchdir/dao_noNAG_nowater.prmtop
+go

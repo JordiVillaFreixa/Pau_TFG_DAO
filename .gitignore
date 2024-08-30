@@ -20,6 +20,7 @@ ATOMTYPE*
 NEWPDB*
 PREP.*
 *_sslink
+*.dcd
 
 
 # Byte-compiled / optimized / DLL files

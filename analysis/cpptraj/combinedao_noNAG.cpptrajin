@@ -1,0 +1,8 @@
+noexitonerror
+parm ../../inputs/dao_noNAG.parm7
+trajin /home/jordivilla/Backup/*/mddao_noNAG_?.nc  # 1 last 10
+trajin /home/jordivilla/Backup/*/mddao_noNAG_??.nc # 1 last 10
+autoimage # center trajectories
+strip :WAT
+trajout /home/jordivilla/scratchdir/dao_noNAG_nowater.dcd dcd
+go
