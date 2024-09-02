@@ -233,12 +233,12 @@ backupdir=os.environ['BACKUPFOLDER']
 run='md'
 dataframedir = './data/'
 
-calcs = {'dao_noNAG': backupdir+'/*/',
-         'dao_noNAG_TRE5': backupdir+'/lapalma/',
-         'dao_noNAG_TRE25': backupdir+'/lapalma/',
-         'dao_noNAG_TRE100': backupdir+'/lapalma/',
-         'dao_noNAG_TRE250': backupdir+'/lapalma/',
-         'dao_noNAG_TRE500': backupdir+'/lapalma/'
+calcs = {'dao_noNAG': backupdir+'/csuc/',
+         'dao_noNAG_TRE5': backupdir+'/csuc/',
+         'dao_noNAG_TRE25': backupdir+'/csuc/',
+         'dao_noNAG_TRE100': backupdir+'/csuc/',
+        # 'dao_noNAG_TRE250': backupdir+'/csuc/',
+         'dao_noNAG_TRE500': backupdir+'/csuc/'
         }
 
 for name, resultsdir in calcs.items():
