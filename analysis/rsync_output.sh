@@ -15,6 +15,9 @@ then
     rsync -Pchav --stats lapalma:/storage/scratch/uvic24/uvic24774/ $BACKUPFOLDER/lapalma 
     echo "############### rsyncing csuc ####################"
     rsync -Pchav --stats csuc:/home/biotectfg02/scratch/ $BACKUPFOLDER/csuc 
+    echo "############### rsyncing pirineusIII ####################"
+    rsync -Pchav --stats hpctest:/home/biotectfg02/scratch/ $BACKUPFOLDER/csuc 
+
 else
     echo "############### rsyncing csuc ####################"
     rsync -Pchav --stats csuc:/home/biotectfg02/scratch/ $BACKUPFOLDER/csuc
