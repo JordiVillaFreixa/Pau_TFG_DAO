@@ -1,5 +1,7 @@
 import MDAnalysis as mda
 from MDAnalysis.analysis import rms, align
+import warnings
+warnings.filterwarnings("ignore")
 
 import numpy as np
 
