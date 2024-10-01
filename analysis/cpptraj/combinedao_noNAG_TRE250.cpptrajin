@@ -1,0 +1,8 @@
+noexitonerror
+parm ../../inputs/dao_noNAG_TRE250.parm7
+trajin /Volumes/BackFam/calculs/csuc/mddao_noNAG_TRE250_?.nc  # 1 last 10
+trajin /Volumes/BackFam/calculs/csuc/mddao_noNAG_TRE250_??.nc # 1 last 10
+autoimage # center trajectories
+strip :WAT
+trajout /Users/jordivilla/scratch/md/dao_noNAG_TRE250_nowater.dcd dcd
+go

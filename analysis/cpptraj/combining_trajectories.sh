@@ -1,5 +1,7 @@
 #!/bin/bash
 
+FILESDIR=$BACKUPFOLDER/csuc
+
 if [[ $# -eq 0 ]] ; then
     echo "ERROR: No arguments supplied. You need to supply the name of the calculation (eg, dao_noNAG)"
     exit
@@ -8,8 +10,8 @@ fi
 cat <<EOF > combine$1.cpptrajin
 noexitonerror
 parm ../../inputs/$1.parm7
-trajin $BACKUPFOLDER/*/md${1}_?.nc  # 1 last 10
-trajin $BACKUPFOLDER/*/md${1}_??.nc # 1 last 10
+trajin $FILESDIR/md${1}_?.nc  # 1 last 10
+trajin $FILESDIR/md${1}_??.nc # 1 last 10
 autoimage # center trajectories
 strip :WAT
 trajout $SCRATCHDIR/${1}_nowater.dcd dcd

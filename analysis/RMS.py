@@ -42,12 +42,12 @@ def generate_plots_mdanalysis(name,run,resultsdir,dataframedir):
 
     calc_RGYR(u,dataframedir,name)
     calc_RMSD(u,dataframedir,name)
-    selection='name CA'
-    nameRMSF=name+'_CA'
-    calc_RMSF(u,parmfile,selection,dataframedir,nameRMSF)
-    selection='name CG'
-    nameRMSF=name+'_CG'
-    calc_RMSF(u,parmfile,selection,dataframedir,nameRMSF)
+#    selection='name CA'
+#    nameRMSF=name+'_CA'
+#    calc_RMSF(u,parmfile,selection,dataframedir,nameRMSF)
+#    selection='name CG'
+#    nameRMSF=name+'_CG'
+#    calc_RMSF(u,parmfile,selection,dataframedir,nameRMSF)
 
 def calc_RGYR(u,dataframedir,name):
 
@@ -239,7 +239,7 @@ calcs = {'dao_noNAG': backupdir+'/csuc/',
          'dao_noNAG_TRE5': backupdir+'/csuc/',
          'dao_noNAG_TRE25': backupdir+'/csuc/',
          'dao_noNAG_TRE100': backupdir+'/csuc/',
-        # 'dao_noNAG_TRE250': backupdir+'/csuc/',
+         'dao_noNAG_TRE250': backupdir+'/csuc/',
          'dao_noNAG_TRE500': backupdir+'/csuc/'
         }
 
