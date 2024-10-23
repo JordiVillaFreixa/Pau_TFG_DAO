@@ -17,7 +17,6 @@ then
     #rsync -Pchav --stats hpctest:/home/biotectfg02/scratch/ $BACKUPFOLDER/csuc 
     echo "############### rsyncing csuc ####################"
     rsync -Pchav --stats csuc:/home/biotectfg02/scratch/ $BACKUPFOLDER/csuc 
-
 else
     echo "############### rsyncing csuc ####################"
     rsync -Pchav --stats csuc:/home/biotectfg02/scratch/ $BACKUPFOLDER/csuc
