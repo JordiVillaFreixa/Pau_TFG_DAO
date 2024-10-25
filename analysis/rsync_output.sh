@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -z "${BACKUPFOLDER}"]
+if [ -z "${BACKUPFOLDER}" ]
 then
     echo "You should define the \$BACKUPFOLDER variable before runnning the script"
     exit
