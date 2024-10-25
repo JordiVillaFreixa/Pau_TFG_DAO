@@ -239,7 +239,7 @@ calcs = {'dao_noNAG': backupdir+'/csuc/',
          'dao_noNAG_TRE5': backupdir+'/csuc/',
          'dao_noNAG_TRE25': backupdir+'/csuc/',
          'dao_noNAG_TRE100': backupdir+'/csuc/',
-        # 'dao_noNAG_TRE250': backupdir+'/csuc/',
+         'dao_noNAG_TRE250': backupdir+'/csuc/',
          'dao_noNAG_TRE500': backupdir+'/csuc/'
         }
 
