@@ -1,0 +1,4 @@
+parm ../../inputs/dao_noNAG_TRE250.parm7
+parmstrip :WAT
+parmwrite out /Users/jordivilla/scratch/md/dao_noNAG_TRE250_nowater.prmtop
+go
