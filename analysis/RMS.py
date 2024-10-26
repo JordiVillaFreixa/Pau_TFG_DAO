@@ -2,7 +2,7 @@ import MDAnalysis as mda
 from MDAnalysis.analysis import rms, align
 import warnings
 warnings.filterwarnings("ignore")
-
+import sys
 import numpy as np
 
 # to install pytraj, check https://amber-md.github.io/pytraj/latest/installation.html#from-conda-linux-ox
@@ -32,8 +32,24 @@ def generate_plots_mdanalysis(name,run,resultsdir,dataframedir):
 
     ##### TRAJECTORY FILES
 
-    trajfiles = sorted(glob.glob(resultsdir+run+name+'_?.nc'))+sorted(glob.glob(resultsdir+run+name+'_??.nc'))
-    print('trajectory files:',trajfiles)
+    # trajfiles = sorted(glob.glob(resultsdir+run+name+'_?.nc'))+sorted(glob.glob(resultsdir+run+name+'_??.nc'))
+    # print('trajectory files:',trajfiles)
+
+    try:
+        trajfiles = sorted(glob.glob(resultsdir + run + name + '_?.nc')) + \
+                    sorted(glob.glob(resultsdir + run + name + '_??.nc'))
+        if not trajfiles:
+            raise FileNotFoundError("No trajectory files found.")
+        
+        print('Trajectory files:', trajfiles)
+
+    except FileNotFoundError as e:
+        print(f"Warning: {e}. Please check the directory or filename pattern.")
+        sys.exit(1)
+    except Exception as e:
+        print(f"An error occurred while searching for trajectory files: {e}")
+        sys.exit(1)
+
       
     # some information
     u = mda.Universe(parmfile,trajfiles)
@@ -231,20 +247,64 @@ def generate_plots_mdout(name,run,resultsdir,dataframedir):
 ##############################################################################################
 ##############################################################################################
 
-backupdir=os.environ['BACKUPFOLDER']
-run='md'
-dataframedir = './data/'
+import os
+import argparse
 
-calcs = {#'dao_noNAG': backupdir+'/csuc/',
-         'dao_noNAG_TRE5': backupdir+'/csuc/',
-         'dao_noNAG_TRE25': backupdir+'/csuc/',
-         'dao_noNAG_TRE100': backupdir+'/csuc/',
-         'dao_noNAG_TRE250': backupdir+'/csuc/',
-         'dao_noNAG_TRE500': backupdir+'/csuc/'
-        }
+def main(calc_name):
+    backupdir = os.environ.get('BACKUPFOLDER')
+    run = 'md'
+    dataframedir = './data/'
 
-for name, resultsdir in calcs.items():
-    print('\n\n$$$$$$ \n run: {0} \n name: {1} \n input files in: {2} \n output generated in: {3} \n$$$$$$'.format(run,name,resultsdir,dataframedir))
-    generate_plots_mdanalysis(name,run,resultsdir,dataframedir)
-    generate_plots_mdout(name,run,resultsdir,dataframedir)
+    # Define the possible calculations and their directories
+    if calc_name == 'dao_noNAG':
+        resultsdir = backupdir + '/csuc/'
+    elif calc_name == 'dao_noNAG_TRE5':
+        resultsdir = backupdir + '/csuc/'
+    elif calc_name == 'dao_noNAG_TRE25':
+        resultsdir = backupdir + '/csuc/'
+    elif calc_name == 'dao_noNAG_TRE100':
+        resultsdir = backupdir + '/csuc/'
+    elif calc_name == 'dao_noNAG_TRE250':
+        resultsdir = backupdir + '/csuc/'
+    elif calc_name == 'dao_noNAG_TRE500':
+        resultsdir = backupdir + '/csuc/'
+    else:
+        print(f"Error: Calculation '{calc_name}' is not recognized.")
+        return
+
+    # Output information and perform calculations
+    print('\n\n$$$$$$ \n run: {0} \n name: {1} \n input files in: {2} \n output generated in: {3} \n$$$$$$'
+          .format(run, calc_name, resultsdir, dataframedir))
+    generate_plots_mdanalysis(calc_name, run, resultsdir, dataframedir)
+    generate_plots_mdout(calc_name, run, resultsdir, dataframedir)
+
+if __name__ == "__main__":
+    # Set up the argument parser
+    parser = argparse.ArgumentParser(description="Run a specified calculation.")
+    parser.add_argument('calc_name', type=str, help="The name of the calculation to run")
+    parser.add_argument('folder', nargs='?', default='csuc',type=str, help="The folder under $BACKUPFOLDER containing the runs")
+
+    # Parse the command line arguments
+    args = parser.parse_args()
+
+    # Call the main function with the argument provided
+    main(args.calc_name)
+
+
+# backupdir=os.environ['BACKUPFOLDER']
+# run='md'
+# dataframedir = './data/'
+
+# calcs = {'dao_noNAG': backupdir+'/csuc/',
+#          'dao_noNAG_TRE5': backupdir+'/csuc/',
+#          'dao_noNAG_TRE25': backupdir+'/csuc/',
+#          'dao_noNAG_TRE100': backupdir+'/csuc/',
+#          'dao_noNAG_TRE250': backupdir+'/csuc/',
+#          'dao_noNAG_TRE500': backupdir+'/csuc/'
+#         }
+
+# for name, resultsdir in calcs.items():
+#     print('\n\n$$$$$$ \n run: {0} \n name: {1} \n input files in: {2} \n output generated in: {3} \n$$$$$$'.format(run,name,resultsdir,dataframedir))
+#     generate_plots_mdanalysis(name,run,resultsdir,dataframedir)
+#     generate_plots_mdout(name,run,resultsdir,dataframedir)
 
