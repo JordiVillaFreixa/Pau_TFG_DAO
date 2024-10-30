@@ -5,7 +5,9 @@
 #SBATCH -n 1
 #SBATCH -t 0-10:00
 
-cd ../analysis
-conda activate MD
+pwd
+. "/home/jvilla/miniconda3/etc/profile.d/conda.sh"
+conda init
+conda activate mdanalysis
 python RMS.py 
 

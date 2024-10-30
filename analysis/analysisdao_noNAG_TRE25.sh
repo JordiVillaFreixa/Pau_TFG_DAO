@@ -1,11 +1,13 @@
 #!/bin/bash -x
 #SBATCH -J dao_noNAG_TRE25
-#SBATCH -e /home/jvilla/scratch/%J.%j.err
-#SBATCH -o /home/jvilla/scratch/%J.%j.out
+#SBATCH -e /home/jvilla/scratch/dao_noNAG_TRE25.err
+#SBATCH -o /home/jvilla/scratch/dao_noNAG_TRE25.out
 #SBATCH -n 1
 #SBATCH -t 0-10:00
 
 pwd
-conda activate MD
+. "/home/jvilla/miniconda3/etc/profile.d/conda.sh"
+conda init
+conda activate mdanalysis
 python RMS.py dao_noNAG_TRE25
 

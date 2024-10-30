@@ -3,13 +3,15 @@ curdir=`pwd`
 cat <<EOT >../analysis/analysis$1.sh
 #!/bin/bash -x
 #SBATCH -J $1
-#SBATCH -e $SCRATCHDIR/%J.%j.err
-#SBATCH -o $SCRATCHDIR/%J.%j.out
+#SBATCH -e $SCRATCHDIR/$1.err
+#SBATCH -o $SCRATCHDIR/$1.out
 #SBATCH -n 1
 #SBATCH -t 0-10:00
 
 pwd
-conda activate MD
+. "/home/jvilla/miniconda3/etc/profile.d/conda.sh"
+conda init
+conda activate mdanalysis
 python RMS.py $1
 
 EOT

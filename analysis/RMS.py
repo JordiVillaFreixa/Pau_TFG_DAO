@@ -11,11 +11,11 @@ import numpy as np
 from matplotlib import pyplot as plt
 #%matplotlib inline
 
-plt.rcParams.update({
-    "text.usetex": True,
-    "font.family": "sans-serif",
-    "font.sans-serif": "Helvetica",
-})
+#plt.rcParams.update({
+#    "text.usetex": True,
+#    "font.family": "sans-serif",
+#    "font.sans-serif": "Helvetica",
+#})
 
 import subprocess
 import glob
@@ -27,13 +27,10 @@ def generate_plots_mdanalysis(name,run,resultsdir,dataframedir):
 
     ##### PARM file
 
-    parmfile='../inputs/'+name+'.parm7'
+    parmfile=resultsdir+name+'.parm7'
     print('parameter file:',parmfile)
 
     ##### TRAJECTORY FILES
-
-    # trajfiles = sorted(glob.glob(resultsdir+run+name+'_?.nc'))+sorted(glob.glob(resultsdir+run+name+'_??.nc'))
-    # print('trajectory files:',trajfiles)
 
     try:
         trajfiles = sorted(glob.glob(resultsdir + run + name + '_?.nc')) + \
@@ -128,13 +125,13 @@ def calc_RMSF(u,parmfile,selection,dataframedir,name):
     ref = average.results.universe
     aligner=align.AlignTraj(u, ref, 
                             select='protein and name CA', 
-                            filename='aligned.dcd',
-                            in_memory=False).run()
-    u2 = mda.Universe(parmfile,'aligned.dcd')
+                            #filename='aligned.dcd',
+                            in_memory=True).run()
+    #u2 = mda.Universe(parmfile,'aligned.dcd')
 
     # identify the subset of the trajectory you want to analyze
     # useful to leave out initial frames
-    utraj = u2.trajectory[100:]
+    utraj = u.trajectory[100:]
 
     # Calculate the average position of each atom
     average_positions = np.zeros_like(protein.positions)
