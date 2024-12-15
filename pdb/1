@@ -1,0 +1,6 @@
+grep -l ' O   WAT ' dao_noNAG_TRE100_wat.pdb|wc
+grep -l ' O   WAT ' dao_noNAG_TRE250_wat.pdb|wc
+grep -l ' O   WAT ' dao_noNAG_TRE25_wat.pdb|wc
+grep -l ' O   WAT ' dao_noNAG_TRE500_wat.pdb|wc
+grep -l ' O   WAT ' dao_noNAG_TRE5_wat.pdb|wc
+grep -l ' O   WAT ' dao_noNAG_TRE_wat.pdb|wc
